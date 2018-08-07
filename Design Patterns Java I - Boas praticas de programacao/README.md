@@ -352,3 +352,111 @@ Nesse exemplo, como a CalculadoraDeImpostos apenas exibe uma mensagem na tela, e
 
 Repare que não há resposta correta; tudo sempre depende do contexto, do problema que estamos resolvendo.
 
+<h2>Estratégias para Investimentos</h2>
+
+Muitas pessoas optam por investir o dinheiro das suas contas bancárias. Existem diversos tipos de investimentos, desde investimentos conservadores até mais arrojados.
+
+Independentemente do investimento escolhido, o titular da conta recebe apenas 75% do lucro do investimento, pois 25% é imposto.
+
+Implemente um mecanismo que invista o valor do saldo dela em um dos vários tipos de investimento e, dado o retorno desse investimento, 75% do valor é adicionado no saldo da conta.
+
+Crie a classe RealizadorDeInvestimentos que recebe uma estratégia de investimento, a executa sobre uma conta bancária, e adiciona o resultado seguindo a regra acima no saldo da conta.
+
+Os possíveis tipos de investimento são:
+
+"CONSERVADOR", que sempre retorna 0.8% do valor investido;
+"MODERADO", que tem 50% de chances de retornar 2.5%, e 50% de chances de retornar 0.7%;
+"ARROJADO", que tem 20% de chances de retornar 5%, 30% de chances de retornar 3%, e 50% de chances de retornar 0.6%.
+Para verificar se a chance é maior que 30%, por exemplo, use:
+
+  boolean escolhido = new java.util.Random().nextDouble() > 0.30;
+
+Vamos começar modelando nossa classe Conta, com um saldo e um método deposita():
+
+```java
+      class Conta {
+        private double saldo;
+
+        public void deposita(double valor) {
+          this.saldo += valor;
+        }
+
+        public double getSaldo() {
+          return this.saldo;
+        }
+      }
+```
+
+Em seguida vamos criar a interface Investimento, e suas implementações concretas:
+
+```java
+      interface Investimento {
+        double calcula(Conta conta);
+      }
+
+      class Conservador implements Investimento{
+        public double calcula(Conta conta) {
+          return conta.getSaldo() * 0.008;
+        } 
+      }
+
+      class Moderado implements Investimento {
+        private Random random;
+
+        public Moderado() {
+          this.random = new Random();
+        }
+
+        public double calcula(Conta conta) {
+          if(random.nextInt(2) == 0) return conta.getSaldo() * 0.025;
+          else return conta.getSaldo() * 0.007;
+        }
+      }
+
+      class Arrojado implements Investimento {
+        private Random random;
+
+        public Arrojado() {
+          this.random = new Random();
+        }
+
+        public double calcula(Conta conta) {
+          int chute = random.nextInt(10);
+          if(chute >= 0 && chute <= 1) return conta.getSaldo() * 0.05;
+          else if (chute >= 2 && chute <= 4) return conta.getSaldo() * 0.03;
+          else return conta.getSaldo() * 0.006;
+        }
+      }
+```
+
+Agora vamos fazer a classe RealizadorDeInvestimentos, que receberá uma conta e um investimento, e depositará o valor do investimento na conta:
+```java
+      class RealizadorDeInvestimentos {
+        public void realiza(Conta conta, Investimento investimento) {
+          double resultado = investimento.calcula(conta);
+
+          conta.deposita( resultado * 0.75 );
+          System.out.println ( "Novo saldo: " + conta.getSaldo());
+        }
+      }
+```
+
+<h2>Strategy o tempo todo?</h2>
+
+Se eu tenho apenas uma única estratégia, faz sentido implementar o Strategy?
+
+Depende do problema. Lembre-se que códigos simples são mais fáceis de manter sempre. Se você só tem uma estratégia, talvez faça mais sentido você não usar o Strategy, já que você estaria flexibilizando algo sem necessidade.
+
+Mas, se é nítido que novas estratégias aparecerão, com certeza um Strategy é mais limpo do que um conjunto de ifs, conforme discutimos nesse capítulo.
+
+Novamente, avalie o contexto e veja se o padrão de projeto vai trazer benefícios para aquele cenário.
+
+<h2>Quando usar o Strategy?</h2>
+Quando devemos aplicar Strategy? Cite um exemplo que você viveu que poderia ter utilizado esse padrão.
+O padrão Strategy é muito útil quando temos um conjunto de algoritmos similares, e precisamos alternar entre eles em diferentes pedaços da aplicação. No exemplo do vídeo, temos diferentes maneiras de calcular o imposto, e precisamos alternar entre elas.
+
+O Strategy nos oferece uma maneira flexível para escrever diversos algoritmos diferentes, e de passar esses algoritmos para classes clientes que precisam deles. Esses clientes desconhecem qual é o algoritmo "real" que está sendo executado, e apenas mandam o algoritmo rodar. Isso faz com que o código da classe cliente fique bastante desacoplado das implementações concretas de algoritmos, possibilitando assim com que esse cliente consiga trabalhar com N diferentes algoritmos sem precisar alterar o seu código.
+
+------------------------------------------------------------------------------------
+<h1>Seção 02 - Muitos Descontos e o Chain of Responsibility</h1>
+
