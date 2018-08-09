@@ -1,5 +1,7 @@
 package strategy;
 
+import chainofresponsibility.Orcamento;
+
 public class CalculadorDeImpostos {
 	
 	public void realizaCalculoICMS(Orcamento orcamento, Imposto impostoQualquer) {

@@ -1,5 +1,7 @@
 package strategy;
 
+import chainofresponsibility.Orcamento;
+
 //A CALCULADORA DE IMPOSTOS RECEBE O PADRÃO DE PROJETOS STRATEGY
 public class TesteDeImpostos {
 	

@@ -1,5 +1,7 @@
 package strategy;
 
+import chainofresponsibility.Orcamento;
+
 public class ICMS implements Imposto{
 
 	@Override
