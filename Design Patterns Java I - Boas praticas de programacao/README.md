@@ -700,3 +700,82 @@ Note também que nossa classe Orcamento cresceu, e agora recebe ítens também. A m
 
       }
 ```
+
+<h2>Desconto por Venda Casada</h2>
+
+Implemente mais uma estratégia de desconto: 5% se tivermos LAPIS e CANETA na mesma compra.
+
+Para isso, crie a classe DescontoPorVendaCasada. Adicione essa classe na cadeia, para suceder o DescontoPorMaisDeQuinhentosReais.
+
+Para verificar se um item está no orçamento você pode usar uma função como a seguinte:
+
+```java
+        private boolean existe(String nomeDoItem, Orcamento orcamento) {
+            for (Item item : orcamento.getItens()) {
+                if(item.getNome().equals(nomeDoItem)) return true;
+            }
+            return false;
+        }
+```
+Parecido com o exercício anterior, nosso desconto implementa a interface Desconto e passa para o próximo desconto caso o orçamento não deva receber esse desconto.
+
+
+```java
+    public class DescontoPorVendaCasada implements Desconto {
+
+        private Desconto proximo;
+
+        public double desconta(Orcamento orcamento) {
+            if(aconteceuVendaCasadaEm(orcamento)) return orcamento.getValor() * 0.05;
+            else return proximo.desconta(orcamento);
+        }
+
+        private boolean aconteceuVendaCasadaEm(Orcamento orcamento) {
+            return existe("CANETA", orcamento) && existe("LAPIS", orcamento);
+        }
+
+        private boolean existe(String nomeDoItem, Orcamento orcamento) {
+            for (Item item : orcamento.getItens()) {
+                if(item.getNome().equals(nomeDoItem)) return true;
+            }
+            return false;
+        }
+
+        public void setProximo(Desconto proximo) {
+            this.proximo = proximo;
+        }
+
+    }
+
+    public class TestaCorrente {
+      public static void main(String[] args) {
+        Desconto d1 = new DescontoPorCincoItens();
+        Desconto d2 = new DescontoPorMaisDeQuinhentosReais();
+        Desconto d3 = new DescontoPorVendaCasada();
+        Desconto d4 = new SemDesconto();
+
+        d1.setProximo(d2);
+        d2.setProximo(d3);
+        d3.setProximo(d4);
+
+    Item lapis = new Item("LAPIS", 15.00);
+        Item caneta = new Item("CANETA", 15.00);
+        Item borracha = new Item("borracha", 15.00);
+
+        Orcamento orcamento = new Orcamento(500.0);
+        orcamento.adiciona(caneta);
+        orcamento.adiciona(borracha);
+        orcamento.adiciona(lapis);        
+
+        double desconto = d1.desconta(orcamento);
+        System.out.println(desconto);
+      }
+    }
+```
+
+<h2>Utiidade da classe CalculadorDeDescontos</h2>
+
+Será que a classe CalculadorDeDescontos é realmente necessária? Discuta a utilidade dela.
+Agora que implementamos o Chain of Responsibility, temos cada uma das responsabilidades separadas em uma classe, e uma forma de unir essa corrente novamente. Veja a flexibilidade que o padrão nos deu: podemos montar a corrente da forma como quisermos, e sem muitas complicações.
+
+Mas precisamos de uma classe que monte essa corrente na ordem certa, com todos os descontos necessários. Por isso que optamos pela classe CalculadorDeDescontos. Ela poderia ter qualquer outro nome como CorrenteDeDescontos, e assim por diante, mas fato é que em algum lugar do seu código você precisará montar essa corrente.
