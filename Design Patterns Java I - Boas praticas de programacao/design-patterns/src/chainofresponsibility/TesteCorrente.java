@@ -11,7 +11,7 @@ public class TesteCorrente {
 	        d2.setProximo(d3);
 	        d3.setProximo(d4);
 
-	    Item lapis = new Item("LAPIS", 15.00);
+	        Item lapis = new Item("LAPIS", 15.00);
 	        Item caneta = new Item("CANETA", 15.00);
 	        Item borracha = new Item("borracha", 15.00);
 
