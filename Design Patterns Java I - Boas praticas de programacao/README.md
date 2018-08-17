@@ -780,3 +780,261 @@ Será que a classe CalculadorDeDescontos é realmente necessária? Discuta a utilid
 Agora que implementamos o Chain of Responsibility, temos cada uma das responsabilidades separadas em uma classe, e uma forma de unir essa corrente novamente. Veja a flexibilidade que o padrão nos deu: podemos montar a corrente da forma como quisermos, e sem muitas complicações.
 
 Mas precisamos de uma classe que monte essa corrente na ordem certa, com todos os descontos necessários. Por isso que optamos pela classe CalculadorDeDescontos. Ela poderia ter qualquer outro nome como CorrenteDeDescontos, e assim por diante, mas fato é que em algum lugar do seu código você precisará montar essa corrente.
+
+<h2>Implementando Chain of Responsability em Requisições Web</h2>
+
+Um servidor de aplicação bancária que se comunica com outras deve responder de várias formas diferentes, de acordo com a solicitação da aplicação cliente.
+
+Se a aplicação solicitar uma Conta, cujos atributos são separados por ponto-e-vírgula, por exemplo, o servidor deverá serializar a conta nesse formato; se a aplicação solicitar XML, o servidor deverá serializar em XML; se ela pedir separado por % (por cento), a aplicação deverá devolver dessa forma.
+
+Por exemplo: a versão em XML deve imprimir na tela: <conta><titular>João da Silva</titular><saldo>1500.0</saldo></conta>.
+
+Implemente um Chain of Responsibility onde, dada uma requisição e uma conta bancária, ela passeia por toda a corrente até encontrar a classe que deve processar a requisição de acordo com o formato solicitado, e imprime na tela a conta bancária no formato correto.
+
+Imagine que a classe Requisição possui um getter getFormato(), que responde "XML", "CSV", ou "PORCENTO", indicando qual tratamento adequado. Uma Conta possui apenas saldo e nome do titular:
+
+```java
+    enum Formato {
+      XML,
+      CSV,
+      PORCENTO
+    }
+```
+```java
+    class Requisicao {
+      private Formato formato;
+      public Requisicao(Formato formato) {
+        this.formato = formato;
+      }
+
+      // getter para o Formato
+    }
+```
+
+A sua interface do Chain of Responsibility deve ser algo como:
+
+```java
+    interface Resposta {
+      void responde(Requisicao req, Conta conta);
+      void setProxima(Resposta resposta);
+    }
+```
+
+Vamos começar implementando a Conta Bancária e a Requisição:
+
+```java
+    class Conta {
+      private String titular;
+      private double saldo;
+
+      public Conta(String titular, double saldo) {
+        this.titular = titular;
+        this.saldo = saldo;
+      }
+
+      // getters para os dois atributos
+    }
+```
+
+```java
+    enum Formato {
+      XML,
+      CSV,
+      PORCENTO
+    }
+```
+
+```java
+    class Requisicao {
+      private Formato formato;
+      public Requisicao(Formato formato) {
+        this.formato = formato;
+      }
+
+      // getter para o Formato
+    }
+```
+
+Agora vamos implementar a cadeia, onde cada parte da cadeia verifica se ela deve atender aquela requisição ou passar para o próximo:
+
+```java
+    interface Resposta {
+      void responde(Requisicao req, Conta conta);
+      void setProxima(Resposta resposta);
+    }
+```
+
+```java
+    class RespostaEmXml implements Resposta {
+      private Resposta outraResposta;
+
+      public void responde(Requisicao req, Conta conta) {
+        if(req.getFormato() == Formato.XML) {
+          System.out.println("<conta><titular>" + conta.getTitular() + "</titular><saldo>" + conta.getSaldo() + "</saldo></conta>");
+        }
+        else {
+          outraResposta.responde(req, conta);
+        }
+      }
+
+      public void setProxima(Resposta resposta) {
+        this.outraResposta = resposta;
+      }
+    }
+```
+
+```java
+    class RespostaEmCsv implements Resposta {
+      private Resposta outraResposta;
+
+      public void responde(Requisicao req, Conta conta) {
+        if(req.getFormato() == Formato.CSV) {
+          System.out.println(conta.getTitular() + "," + conta.getSaldo());
+        }
+        else {
+          outraResposta.responde(req, conta);
+        }
+      }
+
+      public void setProxima(Resposta resposta) {
+        this.outraResposta = resposta;
+      }
+    }
+```
+
+```java
+    class RespostaEmPorcento implements Resposta {
+      private Resposta outraResposta;
+
+      public void responde(Requisicao req, Conta conta) {
+        if(req.getFormato() == Formato.PORCENTO) {
+          System.out.println(conta.getTitular() + "%" + conta.getSaldo());
+        }
+        else {
+          outraResposta.responde(req, conta);
+        }
+      }
+
+      public void setProxima(Resposta resposta) {
+        this.outraResposta = resposta;
+      }
+    }
+
+```
+
+<h2>Recebendo o próximo item da corrente pelo construtor</h2>
+
+O que você achou de receber o próximo item da corrente através de um setter? O que acha de recebê-lo através do construtor?
+
+Implemente essa alteração no exercício anterior e discuta as vantagens e desvantagens dessa solução. Cole sua implementação aqui.
+
+Ao receber a dependência pelo construtor, garantimos que o cliente dessas classes nunca esquecerá de passar o próximo item da sequência, o que pode facilmente acontecer se esquecermos de invocar o método setProxima().
+
+O possível problema com isso é que receber o próximo item da corrente fica implícito na implementação. Sempre que você criar uma nova Resposta, você precisará lembrar de receber o próximo pelo construtor. Com o setProxima() na interface, garantimos que toda implementação saberá lidar com uma próxima resposta.
+
+
+```java
+    interface Resposta {
+      void responde(Requisicao req, Conta conta);
+    }
+```
+```java
+    class RespostaEmXml implements Resposta {
+      private Resposta outraResposta;
+
+      public RespostaEmXml(Resposta outraResposta) {
+        this.outraResposta = outraResposta;
+      }
+
+      public void responde(Requisicao req, Conta conta) {
+        if(req.getFormato() == Formato.XML) {
+          System.out.println("<conta><titular>" + conta.getTitular() + "</titular><saldo>" + conta.getSaldo() + "</saldo></conta>");
+        }
+        else {
+          outraResposta.responde(req, conta);
+        }
+      }
+
+    }
+```
+```java
+    class RespostaEmCsv implements Resposta {
+      private Resposta outraResposta;
+
+      public RespostaEmCsv(Resposta outraResposta) {
+        this.outraResposta = outraResposta;
+      }
+
+      public void responde(Requisicao req, Conta conta) {
+        if(req.getFormato() == Formato.CSV) {
+          System.out.println(conta.getTitular() + ";" + conta.getSaldo());
+        }
+        else {
+          outraResposta.responde(req, conta);
+        }
+      }
+    }
+```
+```java
+    class RespostaEmPorcento implements Resposta {
+      private Resposta outraResposta;
+
+      public RespostaEmPorcento(Resposta outraResposta) {
+        this.outraResposta = outraResposta;
+      }
+
+      public void responde(Requisicao req, Conta conta) {
+        if(req.getFormato() == Formato.PORCENTO) {
+          System.out.println(conta.getTitular() + "%" + conta.getSaldo());
+        }
+        else {
+          outraResposta.responde(req, conta);
+        }
+      }
+    }
+```
+
+<h2>Fim da correnta no Chain of Responsibility</h2>
+
+Como você faria para lidar com o fim da corrente, sem precisar criar uma classe que não faça nada igual fizemos no vídeo e no primeiro exercício?
+
+Você pode fazer com que o próximo item da corrente seja opcional (ou seja, o atributo outraResposta fica com null caso não haja um próximo item). E, no momento de invocar o próximo, você deve verificar se esse atributo é nulo ou não. Por exemplo, no exercício sobre respostas, poderíamos ter implementado da seguinte maneira:
+
+```java
+ class RespostaEmPorcento implements Resposta {
+    private Resposta outraResposta;
+
+    public RespostaEmPorcento(Resposta outraResposta) {
+        this.outraResposta = outraResposta;
+    }
+
+    public RespostaEmPorcento() {
+        this.outraResposta = null; // nao recebi a proxima!
+    }
+
+     public void responde(Requisicao req, Conta conta) {
+        if(req.getFormato() == Formato.PORCENTO) {
+            System.out.println(conta.getTitular() + '%' + conta.getSaldo());
+        } else if(outraResposta != null){
+            outraResposta.responde(req, conta);
+        } else {
+            // não existe próxima na corrente, e ninguém atendeu a requisição!
+            // poderíamos não ter feito nada aqui, caso não fosse necessário!
+            throw new RuntimeException("Formato de resposta não encontrado");
+        }
+    }
+}
+```
+
+<h2>Quando usar o Chain of Responsibility?</h2>
+
+Em quais situações se torna ideal o uso do padrão Chain of Responsibility? Cite algum momento que poderia ter aplicado ele na sua experiência até hoje.
+
+O padrão Chain of Responsibility cai como uma luva quando temos uma lista de comandos a serem executados de acordo com algum cenário em específico, e sabemos também qual o próximo cenário que deve ser validado, caso o anterior não satisfaça a condição.
+
+Nesses casos, o Chain of Responsibility nos possibilita a separação de responsabilidades em classes pequenas e enxutas, e ainda provê uma maneira flexível e desacoplada de juntar esses comportamentos novamente.
+
+
+----------------------------------------------------------------------
+<h1>Seção 03 - Códigos parecidos e o Template Method</h1>
+
