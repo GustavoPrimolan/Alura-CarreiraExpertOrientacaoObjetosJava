@@ -1,6 +1,6 @@
 package templatemethod;
 
-import chainofresponsibility.Orcamento;
+import templatemethod.Orcamento;
 
 public interface Imposto {
 	
