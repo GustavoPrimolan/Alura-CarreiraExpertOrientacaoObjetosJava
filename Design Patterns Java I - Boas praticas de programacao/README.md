@@ -1164,7 +1164,189 @@ Já o imposto IKCV, caso o valor do orçamento seja maior que 500,00 e algum item 
 
 Escreva um método main que testa sua implementação.
 
+```java
 
+package templatemethod;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		Orcamento orcamento = new Orcamento(500.00);
+		TemplateDeImpostoCondicional ikcv = new IKCV();
+		TemplateDeImpostoCondicional icpp = new ICPP();
+		
+		System.out.println(ikcv.calcula(orcamento));
+		
+	}
+}
+
+```
+
+<h2>Modificador de acesso em Template Method</h2>
+
+
+* Na explicação e no vídeo, definimos todos os métodos como public. Mas será que todos eles realmente devem ser public?
+
+* As classes clientes precisam conhecer a existência do método maximaTaxacao(), por exemplo?
+
+* Qual seria o melhor modificador de acesso para esses métodos do "template" ?
+
+* R: protected
+
+* O protected seria o modificador de acesso ideal. As classes cliente não os enxergariam, e as classes filhas do Template conseguiriam sobreescrever esse método sem problemas.
+
+<h2>Imposto Z</h2>
+
+
+* Crie o imposto IHIT, que tem a seguinte regra: caso existam 2 itens com o mesmo nome, o imposto deve ser de 13% mais R$100,00.
+
+* Caso contrário, o valor do imposto deverá ser (1% * o número de ítens no orçamento).
+
+```java
+
+ class IHIT extends TemplateDeImpostoCondicional {
+
+      public boolean deveUsarMaximaTaxacao(Orcamento orcamento) {
+        List<String> noOrcamento = new ArrayList<String>();
+
+        for(Item item : orcamento.getItens()) {
+          if(noOrcamento.contains(item.getNome())) return true;
+          else noOrcamento.add(item.getNome());
+        }
+
+        return false;
+      }
+      protected double maximaTaxacao(Orcamento orcamento) { 
+        return orcamento.getValor() * 0.13 + 100;
+      }
+      protected double minimaTaxacao(Orcamento orcamento) {
+        return orcamento.getValor() * (0.01 * orcamento.getItens().size());
+      }
+    }
+```
+
+<h2>Relatórios e Template Method</h2>
+
+* Relatórios são muito parecidos: todos eles contêm cabeçalho, corpo, e rodapé. Existem dois tipos de relatórios: simples e complexos.
+
+* As diferenças são sutis: relatórios simples possuem cabeçalhos e rodapés de uma linha, apenas com o nome do banco e telefone, respectivamente; relatórios complexos possuem cabeçalhos que informam o nome do banco, endereço, telefone, e rodapés que informam e-mail, e a data atual.
+
+* Além disso, dada uma lista de contas, um relatório simples apenas imprime titular e saldo da conta. O relatório complexo exibe titular, agência, número da conta e saldo.
+
+* Use Template Method, e implemente o mecanismo de relatórios. Use dados falsos para os dados do banco.
+
+```java
+Vamos criar o template do relatório:
+
+
+    abstract class Relatorio {
+      protected abstract void cabecalho();
+      protected abstract void rodape();
+      protected abstract void corpo(List<Conta> contas);
+
+      public void imprime(List<Conta> contas) {
+        cabecalho();
+        corpo(contas);
+        rodape();
+      }
+    }
+```
+
+* Agora vamos implementar os diferentes relatórios, preenchendo somente os "buracos" do template:
+
+
+```java
+    class RelatorioSimples extends Relatorio {
+      protected void cabecalho() {
+        System.out.println("Banco XYZ");
+      }
+
+      protected void rodape() {
+        System.out.println("(11) 1234-5678");
+      }
+
+      protected void corpo(List<Conta> contas) {
+        for(Conta conta : contas) {
+          System.out.println( conta.getNome() + " - " + conta.getSaldo() );
+        }
+      }
+    }
+
+    class RelatorioComplexo extends Relatorio {
+      protected void cabecalho() {
+        System.out.println("Banco XYZ");
+        System.out.println("Avenida Paulista, 1234");
+        System.out.println("(11) 1234-5678");
+      }
+
+      protected void rodape() {
+        System.out.println("banco@xyz.com.br");
+        System.out.println(Calendar.getInstance().getTime());        
+      }
+
+      protected void corpo(List<Conta> contas) {
+        for(Conta conta : contas) {
+          System.out.println( conta.getNome() + " - " + conta.getNumero() + " - " + conta.getAgencia() + " - " + conta.getSaldo() );
+        }
+      }
+    }
+
+
+```
+
+<h2>Chain of Responsibility e Template Method</h2>
+
+* Será que podemos misturar os padrões de projeto? No capítulo anterior, será que o Template Method poderia ser usado em conjunto com o Chain of Responsibility? Como?
+
+* Claro que podemos! Você deve se lembrar que no capítulo anterior implementamos uma verificação em todos os nós da corrente: caso tenha um próximo item na corrente, ele repassa; caso contrário, para a corrente.
+
+* Perceba que todas as correntes seguem um mesmo padrão: todas elas verificam se devem trabalhar, verificando uma condição qualquer; em caso positivo, fazem o seu trabalho. Em caso negativo, a corrente verifica se existe um próximo nó a ser invocado. Se existe, passa para ele. Se não existe, lança uma exceção.
+
+* Implementar um Template Method ali poderia fazer com que o programador escrevesse menos código em todos os nós da corrente, facilitando as novas implementações.
+
+<h2>Quando usar o Template Method?</h2>
+
+* Quando devemos aplicar o padrão Template Method? No código que você já escreveu na tua vida profissional, onde poderia ter aplicado ele?
+
+* Quando temos diferentes algoritmos que possuem estruturas parecidas, o Template Method é uma boa solução. Com ele, conseguimos definir, em um nível mais macro, a estrutura do algoritmo e deixar "buracos", que serão implementados de maneira diferente por cada uma das implementações específicas.
+
+* Dessa forma, reutilizamos ao invés de repetirmos código, e facilitamos possíveis evoluções, tanto do algoritmo em sua estrutura macro, quanto dos detalhes do algoritmo, já que cada classe tem sua responsabilidade bem separada.
+
+<h2>O uso dos padrões. Adaptar ou usar conforme descrito?</h2>
+
+* Perceba que nosso TemplateDeImpostoCondicional possui o método calcula(), que é o molde do nosso algoritmo, e todas as classes filhas herdam esse método.
+
+* O que acontece se a classe filha alterar o código do método com template? Isso é possível, afinal a classe filha pode sobreescrever o método da classe pai:
+
+```java
+class ImpostoMaluco extends TemplateDeImpostoCondicional {
+  public void calcula() { 
+    // mudei a implementação do template aqui
+  }
+}
+```
+
+* Isso faz sentido? Como poderíamos evitar que as filhas "alterem" o template definido pelo pai?
+
+* Podemos evitar que aquele método template, definido na classe pai, seja sobrescrito! Para isso, basta adicionarmos o modificador "final" na assinatura do método calcula():
+
+```java
+    class TemplateDeImpostoCondicional implements Imposto {
+        public final double calcula(Orcamento orcamento) {
+
+          if(deveUsarMaximaTaxacao(orcamento)) {
+            return maximaTaxacao(orcamento);
+          } else {
+            return minimaTaxacao(orcamento);
+          }
+
+        } 
+    }
+```
+* Dessa forma, os filhos não conseguirão sobrescrever o método template da classe pai. Esse tipo de alteração é muito comum em implementações de Template Method.
+
+------------------------------------------------------------
+<h1>Seção 04 - Comportamentos compostos por outros comportamentos e o Decorator</h1>
 
 
 

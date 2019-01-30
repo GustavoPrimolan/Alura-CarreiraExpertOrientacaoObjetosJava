@@ -9,7 +9,5 @@ public class Main {
 		
 		System.out.println(ikcv.calcula(orcamento));
 		
-		
-		
 	}
 }
