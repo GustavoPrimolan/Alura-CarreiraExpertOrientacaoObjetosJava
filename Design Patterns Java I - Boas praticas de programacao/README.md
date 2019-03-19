@@ -1,22 +1,22 @@
-<h1>Seção 01 - A grande variedade de impostos e o padrão Strategy</h1>
+<h1>Seï¿½ï¿½o 01 - A grande variedade de impostos e o padrï¿½o Strategy</h1>
 
 <h2>Design Patterns</h2>
-Classes e métodos gigantes? Cinco minutos para entender o que aquele método faz ou onde está o código que faz uma alteração simples? Diversas variáveis e diversos ifs e fors no mesmo método? Código complexo e obscuro? Toda vez que uma alteração aparece, você precisa mudar em 20 classes diferentes? Sim, problemas muito comuns do nosso dia-a-dia. Mas por que isso acontece?
+Classes e mï¿½todos gigantes? Cinco minutos para entender o que aquele mï¿½todo faz ou onde estï¿½ o cï¿½digo que faz uma alteraï¿½ï¿½o simples? Diversas variï¿½veis e diversos ifs e fors no mesmo mï¿½todo? Cï¿½digo complexo e obscuro? Toda vez que uma alteraï¿½ï¿½o aparece, vocï¿½ precisa mudar em 20 classes diferentes? Sim, problemas muito comuns do nosso dia-a-dia. Mas por que isso acontece?
 
-Um fato que é conhecido sobre todo software é que ele, mais cedo ou mais tarde, vai mudar: novas funcionalidades aparecerão, outras deverão ser alteradas etc. O problema é que, geralmente, essas mudanças não são feitas de forma muito planejada. Por esse motivo, durante o desenvolvimento de um projeto de software, é bem comum a criação de código onde as responsabilidades se misturam e espalham por várias classes, fazendo com que a manutenção do código fique cada vez mais difícil, já que uma simples mudança pode obrigar o desenvolvedor a alterar diversas classes. Nesse cenário, temos uma situação onde o 'Design' das classes não está bom e é possível melhorá-lo.
+Um fato que ï¿½ conhecido sobre todo software ï¿½ que ele, mais cedo ou mais tarde, vai mudar: novas funcionalidades aparecerï¿½o, outras deverï¿½o ser alteradas etc. O problema ï¿½ que, geralmente, essas mudanï¿½as nï¿½o sï¿½o feitas de forma muito planejada. Por esse motivo, durante o desenvolvimento de um projeto de software, ï¿½ bem comum a criaï¿½ï¿½o de cï¿½digo onde as responsabilidades se misturam e espalham por vï¿½rias classes, fazendo com que a manutenï¿½ï¿½o do cï¿½digo fique cada vez mais difï¿½cil, jï¿½ que uma simples mudanï¿½a pode obrigar o desenvolvedor a alterar diversas classes. Nesse cenï¿½rio, temos uma situaï¿½ï¿½o onde o 'Design' das classes nï¿½o estï¿½ bom e ï¿½ possï¿½vel melhorï¿½-lo.
 
-Para atingir o objetivo da melhora do 'Design' e diminuir o custo de manutenção, existem algumas técnicas, onde podemos aplicar a orientação a objetos de uma maneira a simplificar o código escrito.
+Para atingir o objetivo da melhora do 'Design' e diminuir o custo de manutenï¿½ï¿½o, existem algumas tï¿½cnicas, onde podemos aplicar a orientaï¿½ï¿½o a objetos de uma maneira a simplificar o cï¿½digo escrito.
 
-Resolveremos diversos dos problemas que vemos em códigos, como classes e métodos gigantes que fazem muita coisa, classes que precisam conhecer mais 10 outras classes para fazer seu trabalho, métodos complicados com muitos ifs e condições, mudanças que se propagam por várias classes e assim por diante.
+Resolveremos diversos dos problemas que vemos em cï¿½digos, como classes e mï¿½todos gigantes que fazem muita coisa, classes que precisam conhecer mais 10 outras classes para fazer seu trabalho, mï¿½todos complicados com muitos ifs e condiï¿½ï¿½es, mudanï¿½as que se propagam por vï¿½rias classes e assim por diante.
 
-Algumas das principais técnicas para atingir um bom 'Design' são tão comuns que foram catalogadas em um conjunto de alternativas para solucionar problemas de Design de código, chamados de Design Patterns, mais conhecido em português como os Padrões de Projetos, os quais, durante esse curso, aprenderemos a utilizar em um projeto. Um padrão de projeto nada mais é do que uma solução elegante para um problema que é muito recorrente em nosso dia-a-dia.
+Algumas das principais tï¿½cnicas para atingir um bom 'Design' sï¿½o tï¿½o comuns que foram catalogadas em um conjunto de alternativas para solucionar problemas de Design de cï¿½digo, chamados de Design Patterns, mais conhecido em portuguï¿½s como os Padrï¿½es de Projetos, os quais, durante esse curso, aprenderemos a utilizar em um projeto. Um padrï¿½o de projeto nada mais ï¿½ do que uma soluï¿½ï¿½o elegante para um problema que ï¿½ muito recorrente em nosso dia-a-dia.
 
-Mais importante do que entender como é a implementação de um padrão de projeto, é entender a motivação do padrão: em quais casos ele faz sentido e deve ser aplicado. Durante os próximos capítulos, observe o cenário do exemplo dado com atenção e o leve para o seu mundo e para o contexto de sua aplicação. Aquele cenário acontece? Se sim, então talvez o padrão de projeto ensinado naquele capítulo seja uma boa saída para controlar a crescente complexidade daquele código.
+Mais importante do que entender como ï¿½ a implementaï¿½ï¿½o de um padrï¿½o de projeto, ï¿½ entender a motivaï¿½ï¿½o do padrï¿½o: em quais casos ele faz sentido e deve ser aplicado. Durante os prï¿½ximos capï¿½tulos, observe o cenï¿½rio do exemplo dado com atenï¿½ï¿½o e o leve para o seu mundo e para o contexto de sua aplicaï¿½ï¿½o. Aquele cenï¿½rio acontece? Se sim, entï¿½o talvez o padrï¿½o de projeto ensinado naquele capï¿½tulo seja uma boa saï¿½da para controlar a crescente complexidade daquele cï¿½digo.
 
-Durante todos os outros capítulos, faremos muitos exercícios. Todas as explicações serão baseadas em problemas do mundo real e você, ao final, utilizará os conhecimentos adquiridos para resolver os exercícios, que são desafiadores! Não se esqueça de prestar muita atenção ao cenário e ao problema proposto. Entenda a motivação de cada padrão para que você consiga levá-lo para os problemas do seu mundo!
+Durante todos os outros capï¿½tulos, faremos muitos exercï¿½cios. Todas as explicaï¿½ï¿½es serï¿½o baseadas em problemas do mundo real e vocï¿½, ao final, utilizarï¿½ os conhecimentos adquiridos para resolver os exercï¿½cios, que sï¿½o desafiadores! Nï¿½o se esqueï¿½a de prestar muita atenï¿½ï¿½o ao cenï¿½rio e ao problema proposto. Entenda a motivaï¿½ï¿½o de cada padrï¿½o para que vocï¿½ consiga levï¿½-lo para os problemas do seu mundo!
 
-Muitas regras e código complexo
-Tomando como exemplo uma aplicação cujo objetivo é a criação de orçamentos, temos uma regra de negócio na qual os valores dos orçamentos podem ser submetidos à alguns impostos, como ISS, ICMS e assim por diante. Com isso, temos a simples classe que representa o orçamento, recebendo via construtor o seu valor: 
+Muitas regras e cï¿½digo complexo
+Tomando como exemplo uma aplicaï¿½ï¿½o cujo objetivo ï¿½ a criaï¿½ï¿½o de orï¿½amentos, temos uma regra de negï¿½cio na qual os valores dos orï¿½amentos podem ser submetidos ï¿½ alguns impostos, como ISS, ICMS e assim por diante. Com isso, temos a simples classe que representa o orï¿½amento, recebendo via construtor o seu valor: 
 
 ```java
 public class Orcamento { 
@@ -32,35 +32,35 @@ public class Orcamento {
 } 
 
 ```
-Com isso, podemos criar novos orçamentos, instanciando objetos do respectivo tipo e caso queiramos calcular um imposto sobre seu valor, basta utilizarmos o atributo valor para isso. Assim, podemos estipular que o ICMS valha 10% e precisamos calculá-lo, baseado no valor do orçamento. Para isso, podemos ter a seguinte classe com um simples método para realizar o cálculo: 
+Com isso, podemos criar novos orï¿½amentos, instanciando objetos do respectivo tipo e caso queiramos calcular um imposto sobre seu valor, basta utilizarmos o atributo valor para isso. Assim, podemos estipular que o ICMS valha 10% e precisamos calculï¿½-lo, baseado no valor do orï¿½amento. Para isso, podemos ter a seguinte classe com um simples mï¿½todo para realizar o cï¿½lculo: 
 
 ```java
 public class CalculadorDeImpostos { 
 	public void realizaCalculo(Orcamento orcamento) { 
-		double icms = orcamento.getValor() * 0.1; System.out.println(icms); // imprimirá 50.0 
+		double icms = orcamento.getValor() * 0.1; System.out.println(icms); // imprimirï¿½ 50.0 
 	} 
 } 
 ```
 
-Podemos ainda querer calcular outro imposto, como o ISS, que é 6% do valor do orçamento. Com isso, adicionamos a nova regra ao código anterior. Mas devemos escolher qual o imposto que será calculado. Portanto, o método realizaCalculo deverá receber uma informação, indicando qual o imposto terá o cálculo realizado: 
+Podemos ainda querer calcular outro imposto, como o ISS, que ï¿½ 6% do valor do orï¿½amento. Com isso, adicionamos a nova regra ao cï¿½digo anterior. Mas devemos escolher qual o imposto que serï¿½ calculado. Portanto, o mï¿½todo realizaCalculo deverï¿½ receber uma informaï¿½ï¿½o, indicando qual o imposto terï¿½ o cï¿½lculo realizado: 
 
 ```java
 public class CalculadorDeImpostos { 
 	public void realizaCalculo(Orcamento orcamento, String imposto) { 
 		if( "ICMS".equals(imposto) ) { 
 			double icms = orcamento.getValor() * 0.1; 
-			System.out.println(icms); // imprimirá 50.0 
+			System.out.println(icms); // imprimirï¿½ 50.0 
 		} else if( "ISS".equals(imposto) ) { 
 			double iss = orcamento.getValor() * 0.06; 
-			System.out.println(iss); // imprimirá 30.0 
+			System.out.println(iss); // imprimirï¿½ 30.0 
 		} 
 	} 
 } 
 ```
 
-Note que uma das consequências do código que acabamos de criar, é que espalhamos os cálculos e nossas regras de negócio. Dessa maneira, não temos nenhum encapsulamento de nossas regras de negócio e elas se tornam bastante suscetíveis a serem replicadas em outros pontos do código da aplicação. Por que não encapsulamos as regras dos cálculos em uma classe especializada para cada imposto?
+Note que uma das consequï¿½ncias do cï¿½digo que acabamos de criar, ï¿½ que espalhamos os cï¿½lculos e nossas regras de negï¿½cio. Dessa maneira, nï¿½o temos nenhum encapsulamento de nossas regras de negï¿½cio e elas se tornam bastante suscetï¿½veis a serem replicadas em outros pontos do cï¿½digo da aplicaï¿½ï¿½o. Por que nï¿½o encapsulamos as regras dos cï¿½lculos em uma classe especializada para cada imposto?
 Encapsulando o comportamento
-Ao invés de mantermos as regras espalhadas pela nossa aplicação, podemos encapsulá-las em classes cujas responsabilidades sejam realizar os cálculos. Para isso, podemos criar as classes ICMS e ISS cada um com seu respectivo método para calcular o valor do imposto de acordo com o orçamento.
+Ao invï¿½s de mantermos as regras espalhadas pela nossa aplicaï¿½ï¿½o, podemos encapsulï¿½-las em classes cujas responsabilidades sejam realizar os cï¿½lculos. Para isso, podemos criar as classes ICMS e ISS cada um com seu respectivo mï¿½todo para calcular o valor do imposto de acordo com o orï¿½amento.
 
 ```java
 
@@ -80,7 +80,7 @@ Ao invés de mantermos as regras espalhadas pela nossa aplicação, podemos encapsu
       }
 ```
 
-Agora temos as duas classes que separam a responsabilidade dos cálculos de impostos, com isso, podemos utilizá-las na classe CalculadorDeImpostos da seguinte maneira:
+Agora temos as duas classes que separam a responsabilidade dos cï¿½lculos de impostos, com isso, podemos utilizï¿½-las na classe CalculadorDeImpostos da seguinte maneira:
 
 ```java
       public class CalculadorDeImpostos {
@@ -90,24 +90,24 @@ Agora temos as duas classes que separam a responsabilidade dos cálculos de impos
           if( "ICMS".equals(imposto) ) {
 
             double icms = new ICMS().calculaICMS(orcamento);
-            System.out.println(icms); // imprimirá 50.0
+            System.out.println(icms); // imprimirï¿½ 50.0
 
           } else if( "ISS".equals(imposto) ) {
 
             double iss = new ISS().calculaISS(orcamento);
-            System.out.println(iss); // imprimirá 30.0
+            System.out.println(iss); // imprimirï¿½ 30.0
 
             }
           }
       }
 
 ```
-Agora o código está melhor, mas não significa que esteja bom. Um ponto extremamente crítico desse código é o fato de que quando quisermos adicionar mais um tipo diferente de cálculo de imposto em nosso calculador, teremos que alterar essa classe adicionando mais um bloco de if, além de criarmos a classe que encapsulará o cálculo do novo imposto. Parece bastante trabalho.
+Agora o cï¿½digo estï¿½ melhor, mas nï¿½o significa que esteja bom. Um ponto extremamente crï¿½tico desse cï¿½digo ï¿½ o fato de que quando quisermos adicionar mais um tipo diferente de cï¿½lculo de imposto em nosso calculador, teremos que alterar essa classe adicionando mais um bloco de if, alï¿½m de criarmos a classe que encapsularï¿½ o cï¿½lculo do novo imposto. Parece bastante trabalho.
 
 Eliminando os condicionais com polimorfismo e o pattern Strategy
-O que queremos em nosso código é não realizar nenhum condicional, ou seja, não termos mais que fazer ifs dentro do CalculadorDeImpostos. Dessa forma, não devemos mais receber a String com o nome do imposto, no qual realizamos os ifs. Mas como escolheremos qual o imposto que deve ser calculado?
+O que queremos em nosso cï¿½digo ï¿½ nï¿½o realizar nenhum condicional, ou seja, nï¿½o termos mais que fazer ifs dentro do CalculadorDeImpostos. Dessa forma, nï¿½o devemos mais receber a String com o nome do imposto, no qual realizamos os ifs. Mas como escolheremos qual o imposto que deve ser calculado?
 
-Uma primeira possibilidade é criar dois métodos separados na classe CalculadorDeImpostos. Um para o ICMS e outro para o ISS, dessa forma teremos:
+Uma primeira possibilidade ï¿½ criar dois mï¿½todos separados na classe CalculadorDeImpostos. Um para o ICMS e outro para o ISS, dessa forma teremos:
 ```java
 
       public class CalculadorDeImpostos {
@@ -129,7 +129,7 @@ Uma primeira possibilidade é criar dois métodos separados na classe CalculadorDe
       }
 
 ```
-No entanto, agora só transferimos o problema dos vários ifs para vários métodos. O que não resolve o problema. O próximo passo para conseguirmos melhorar essa solução é termos um único método, genérico, que consegue realizar o cálculo para qualquer imposto, sem fazer nenhum if dentro dele.
+No entanto, agora sï¿½ transferimos o problema dos vï¿½rios ifs para vï¿½rios mï¿½todos. O que nï¿½o resolve o problema. O prï¿½ximo passo para conseguirmos melhorar essa soluï¿½ï¿½o ï¿½ termos um ï¿½nico mï¿½todo, genï¿½rico, que consegue realizar o cï¿½lculo para qualquer imposto, sem fazer nenhum if dentro dele.
 
 ```java
       public class CalculadorDeImpostos {
@@ -146,7 +146,7 @@ No entanto, agora só transferimos o problema dos vários ifs para vários métodos.
       }
 
 ```
-Agora estamos presos ao ICMS. Precisamos que nosso código fique flexível o bastante para utilizarmos diferentes impostos na realização do cálculo. Uma possibilidade para resolvermos esse problema é, ao invés de instanciarmos o imposto que desejamos dentro do método, recebermos uma instância do Imposto que queremos utilizar, como no código seguinte:
+Agora estamos presos ao ICMS. Precisamos que nosso cï¿½digo fique flexï¿½vel o bastante para utilizarmos diferentes impostos na realizaï¿½ï¿½o do cï¿½lculo. Uma possibilidade para resolvermos esse problema ï¿½, ao invï¿½s de instanciarmos o imposto que desejamos dentro do mï¿½todo, recebermos uma instï¿½ncia do Imposto que queremos utilizar, como no cï¿½digo seguinte:
 
 ```java
 
@@ -163,7 +163,7 @@ Agora estamos presos ao ICMS. Precisamos que nosso código fique flexível o basta
       }
 
 ```
-No entanto, não temos o tipo Imposto em nossa aplicação e além disso, nesse tipo precisamos passar uma instância de ISS e ICMS. Para isso, podemos criar uma interface chamada Imposto e fazermos as classes ISS e ICMS a implementar.
+No entanto, nï¿½o temos o tipo Imposto em nossa aplicaï¿½ï¿½o e alï¿½m disso, nesse tipo precisamos passar uma instï¿½ncia de ISS e ICMS. Para isso, podemos criar uma interface chamada Imposto e fazermos as classes ISS e ICMS a implementar.
 ```java
 
       public interface Imposto {
@@ -187,7 +187,7 @@ No entanto, não temos o tipo Imposto em nossa aplicação e além disso, nesse tipo
       }
 
 ```
-E agora o nosso CalculadorDeImpostos está pronto para ser utilizado e flexível o bastante para receber diferentes tipos (ou "estratégias") de impostos. Um código que demonstra essa flexibilidade é o seguinte:
+E agora o nosso CalculadorDeImpostos estï¿½ pronto para ser utilizado e flexï¿½vel o bastante para receber diferentes tipos (ou "estratï¿½gias") de impostos. Um cï¿½digo que demonstra essa flexibilidade ï¿½ o seguinte:
 
 ```java
       public class TesteDeImpostos {
@@ -209,47 +209,47 @@ E agora o nosso CalculadorDeImpostos está pronto para ser utilizado e flexível o
       }
 
 ```
-Agora, com um único método em nosso CalculadorDeImpostos, podemos realizar o cálculo de diferentes tipos de impostos, apenas recebendo a estratégia do tipo do imposto que desejamos utilizar no cálculo.
+Agora, com um ï¿½nico mï¿½todo em nosso CalculadorDeImpostos, podemos realizar o cï¿½lculo de diferentes tipos de impostos, apenas recebendo a estratï¿½gia do tipo do imposto que desejamos utilizar no cï¿½lculo.
 
-Quando utilizamos uma hierarquia, como fizemos com a interface Imposto e as implementações ICMS e ISS, e recebemos o tipo mais genérico como parâmetro, para ganharmos o polimorfismo na regra que será executada, simplificando o código e sua evolução, estamos usando o Design Pattern chamado Strategy.
+Quando utilizamos uma hierarquia, como fizemos com a interface Imposto e as implementaï¿½ï¿½es ICMS e ISS, e recebemos o tipo mais genï¿½rico como parï¿½metro, para ganharmos o polimorfismo na regra que serï¿½ executada, simplificando o cï¿½digo e sua evoluï¿½ï¿½o, estamos usando o Design Pattern chamado Strategy.
 
-Repare que a criação de uma nova estratégia de cálculo de imposto não implica em mudanças no código escrito acima! Basta criarmos uma nova classe que implementa a interface Imposto, que nosso CalculadorDeImpostos conseguirá calculá-lo sem precisar de nenhuma alteração!
+Repare que a criaï¿½ï¿½o de uma nova estratï¿½gia de cï¿½lculo de imposto nï¿½o implica em mudanï¿½as no cï¿½digo escrito acima! Basta criarmos uma nova classe que implementa a interface Imposto, que nosso CalculadorDeImpostos conseguirï¿½ calculï¿½-lo sem precisar de nenhuma alteraï¿½ï¿½o!
 
-<h2>O que é um padrão de projeto?</h2>
-Um padrão de projeto é uma solução elegante para um problema que é recorrente no dia-a-dia do desenvolvedor.
+<h2>O que ï¿½ um padrï¿½o de projeto?</h2>
+Um padrï¿½o de projeto ï¿½ uma soluï¿½ï¿½o elegante para um problema que ï¿½ recorrente no dia-a-dia do desenvolvedor.
 
-Ou seja, por mais que desenvolvamos projetos diferentes, muitos dos problemas se repetem. Padrões de projeto são soluções elegantes e flexíveis para esses problemas.
+Ou seja, por mais que desenvolvamos projetos diferentes, muitos dos problemas se repetem. Padrï¿½es de projeto sï¿½o soluï¿½ï¿½es elegantes e flexï¿½veis para esses problemas.
 
-<h2>Estudando a motivação dos padrões</h2>
+<h2>Estudando a motivaï¿½ï¿½o dos padrï¿½es</h2>
 
-O que é mais importante ao estudar um padrão de projetos?
-R: Entender a motivação do padrão de projeto e qual problema ele resolve.
+O que ï¿½ mais importante ao estudar um padrï¿½o de projetos?
+R: Entender a motivaï¿½ï¿½o do padrï¿½o de projeto e qual problema ele resolve.
 
-O mais importante ao estudar padrões de projeto é entender qual a real motivação do padrão, e quando ele deve ser aplicado.
+O mais importante ao estudar padrï¿½es de projeto ï¿½ entender qual a real motivaï¿½ï¿½o do padrï¿½o, e quando ele deve ser aplicado.
 
-As implementações são menos importantes, pois eles podem variar. O importante é resolver o problema de maneira elegante, usando a ideia por trás do padrão como um guia na implementação. Uma afirmação muito comum sobre padrões de projeto é que você os aplica mil vezes, e as mil vezes você termina com uma implementação diferente do mesmo padrão.
+As implementaï¿½ï¿½es sï¿½o menos importantes, pois eles podem variar. O importante ï¿½ resolver o problema de maneira elegante, usando a ideia por trï¿½s do padrï¿½o como um guia na implementaï¿½ï¿½o. Uma afirmaï¿½ï¿½o muito comum sobre padrï¿½es de projeto ï¿½ que vocï¿½ os aplica mil vezes, e as mil vezes vocï¿½ termina com uma implementaï¿½ï¿½o diferente do mesmo padrï¿½o.
 
-<h2>O que é um padrão de projeto?</h2>
+<h2>O que ï¿½ um padrï¿½o de projeto?</h2>
 
-Você já conhece padrões de projeto? Em sua opinião, o que é um padrão de projeto?
+Vocï¿½ jï¿½ conhece padrï¿½es de projeto? Em sua opiniï¿½o, o que ï¿½ um padrï¿½o de projeto?
 <br/ >
-R: Um padrão de projeto é uma solução elegante para um problema que é recorrente no dia-a-dia do desenvolvedor.
-Ou seja, por mais que desenvolvamos projetos diferentes, muitos dos problemas se repetem. Padrões de projeto são soluções elegantes e flexíveis para esses problemas.
+R: Um padrï¿½o de projeto ï¿½ uma soluï¿½ï¿½o elegante para um problema que ï¿½ recorrente no dia-a-dia do desenvolvedor.
+Ou seja, por mais que desenvolvamos projetos diferentes, muitos dos problemas se repetem. Padrï¿½es de projeto sï¿½o soluï¿½ï¿½es elegantes e flexï¿½veis para esses problemas.
 
-<h2>Estudando a motivação dos padrões</h2>
-O que e mais importante ao estudar um padrão de projeto?
-R: Entender a motivação do padrão de projeto e qual problema ele resolve.
-As implementações são menos importantes, pois eles podem variar. O importante é resolver o problema de maneira elegante, usando a ideia por trás do padrão como um guia na implementação. Uma afirmação muito comum sobre padrões de projeto é que você os aplica mil vezes, e as mil vezes você termina com uma implementação diferente do mesmo padrão.
+<h2>Estudando a motivaï¿½ï¿½o dos padrï¿½es</h2>
+O que e mais importante ao estudar um padrï¿½o de projeto?
+R: Entender a motivaï¿½ï¿½o do padrï¿½o de projeto e qual problema ele resolve.
+As implementaï¿½ï¿½es sï¿½o menos importantes, pois eles podem variar. O importante ï¿½ resolver o problema de maneira elegante, usando a ideia por trï¿½s do padrï¿½o como um guia na implementaï¿½ï¿½o. Uma afirmaï¿½ï¿½o muito comum sobre padrï¿½es de projeto ï¿½ que vocï¿½ os aplica mil vezes, e as mil vezes vocï¿½ termina com uma implementaï¿½ï¿½o diferente do mesmo padrï¿½o.
 
 
 <h2>Implementando um Strategy</h2>
-Crie todo o mecanismo para flexibilizar a criação de diferentes estratégias de impostos, igual visto no vídeo. Crie a interface Imposto, e as estratégias ICMS e ISS. O ISS deve ser 6% do valor do orçamento, e o ICMS deve ser 5% do valor do orçamento mais o valor fixo de R$ 50,00.
+Crie todo o mecanismo para flexibilizar a criaï¿½ï¿½o de diferentes estratï¿½gias de impostos, igual visto no vï¿½deo. Crie a interface Imposto, e as estratï¿½gias ICMS e ISS. O ISS deve ser 6% do valor do orï¿½amento, e o ICMS deve ser 5% do valor do orï¿½amento mais o valor fixo de R$ 50,00.
 
-Crie a classe Orcamento, que tem como atributo um valor. Crie um construtor que recebe esse valor, e um getter para devolvê-lo.
+Crie a classe Orcamento, que tem como atributo um valor. Crie um construtor que recebe esse valor, e um getter para devolvï¿½-lo.
 
-Crie a classe CalculadorDeImpostos, que recebe um Orcamento e um Imposto. Essa classe calcula o imposto usando a estratégia recebida e imprime o resultado na tela.
+Crie a classe CalculadorDeImpostos, que recebe um Orcamento e um Imposto. Essa classe calcula o imposto usando a estratï¿½gia recebida e imprime o resultado na tela.
 
-Vamos começar com a classe Orçamento.
+Vamos comeï¿½ar com a classe Orï¿½amento.
 
 ```java
     public class Orcamento {
@@ -266,14 +266,14 @@ Vamos começar com a classe Orçamento.
 
     }
 ```
-Em seguida, vamos criar a abstração Imposto. Todo imposto deverá implementar essa interface, já que a interface é a que será utilizada para fazermos o Strategy.
+Em seguida, vamos criar a abstraï¿½ï¿½o Imposto. Todo imposto deverï¿½ implementar essa interface, jï¿½ que a interface ï¿½ a que serï¿½ utilizada para fazermos o Strategy.
 
 ```java
       public interface Imposto {
           double calcula(Orcamento orcamento);
       }
 ```
-Agora vamos fazer as implementações concretas dos impostos ICMS e ISS, ambos implementando a interface Imposto, cada um com sua regra específica:
+Agora vamos fazer as implementaï¿½ï¿½es concretas dos impostos ICMS e ISS, ambos implementando a interface Imposto, cada um com sua regra especï¿½fica:
 
 ```java
       public class ICMS implements Imposto {
@@ -292,7 +292,7 @@ Agora vamos fazer as implementações concretas dos impostos ICMS e ISS, ambos imp
 
       }
 ```
-Vamos criar agora uma classe cliente, que receberá a estratégia, e a utilizará. Veja a classe abaixo: ela recebe a estratégia, e a utiliza para calcular o imposto; em seguida, apenas exibe o resultado na tela. Em uma implementação mais real, essa classe poderia fazer algo mais útil com o resultado.
+Vamos criar agora uma classe cliente, que receberï¿½ a estratï¿½gia, e a utilizarï¿½. Veja a classe abaixo: ela recebe a estratï¿½gia, e a utiliza para calcular o imposto; em seguida, apenas exibe o resultado na tela. Em uma implementaï¿½ï¿½o mais real, essa classe poderia fazer algo mais ï¿½til com o resultado.
 
 
 ```java
@@ -305,14 +305,14 @@ Vamos criar agora uma classe cliente, que receberá a estratégia, e a utilizará. 
       }
 ```
 
-<h2>Estratégia para o imposto ICCC</h2>
-Implemente mais uma estratégia de cálculo de imposto.
+<h2>Estratï¿½gia para o imposto ICCC</h2>
+Implemente mais uma estratï¿½gia de cï¿½lculo de imposto.
 
-Crie o imposto que se chama ICCC, que retorna 5% do valor total caso o orçamento seja menor do que R$ 1000,00 reais, 7% caso o valor esteja entre R$ 1000 e R$ 3000,00 com os limites inclusos, ou 8% mais 30 reais, caso o valor esteja acima de R$ 3000,00.
+Crie o imposto que se chama ICCC, que retorna 5% do valor total caso o orï¿½amento seja menor do que R$ 1000,00 reais, 7% caso o valor esteja entre R$ 1000 e R$ 3000,00 com os limites inclusos, ou 8% mais 30 reais, caso o valor esteja acima de R$ 3000,00.
 
-Escreva um método main que testa sua implementação.
+Escreva um mï¿½todo main que testa sua implementaï¿½ï¿½o.
 
-Basta criar a classe ICCC, que implementa a interface Imposto. Em seguida, uma classe de teste que invocará essa estratégia, passando uma orçamento qualquer de exemplo.
+Basta criar a classe ICCC, que implementa a interface Imposto. Em seguida, uma classe de teste que invocarï¿½ essa estratï¿½gia, passando uma orï¿½amento qualquer de exemplo.
 
 ```java
      public class ICCC implements Imposto {
@@ -343,35 +343,35 @@ Basta criar a classe ICCC, que implementa a interface Imposto. Em seguida, uma c
 
 <h2>Utilidade da classe CalculadoraDeImpostos</h2>
 
-A classe CalculadoraDeImpostos agora tem pouco código. Ela simplesmente invoca a estratégia de imposto e imprime através de um System.out.println() na tela.
+A classe CalculadoraDeImpostos agora tem pouco cï¿½digo. Ela simplesmente invoca a estratï¿½gia de imposto e imprime atravï¿½s de um System.out.println() na tela.
 
-Será que ela precisa continuar existindo?
+Serï¿½ que ela precisa continuar existindo?
 
 <br/>
-Nesse exemplo, como a CalculadoraDeImpostos apenas exibe uma mensagem na tela, ela não é necessária. Mas agora imagine que, além de calcular o imposto, essa classe precisasse fazer mais alguma coisa, como por exemplo, alterar o status do Orçamento, ou notificar algum outro objeto desse valor calculado. Nesse caso, precisaríamos de uma classe para conter essa regra de negócios, e a classe CalculadoraDeImpostos seria uma boa candidata.
+Nesse exemplo, como a CalculadoraDeImpostos apenas exibe uma mensagem na tela, ela nï¿½o ï¿½ necessï¿½ria. Mas agora imagine que, alï¿½m de calcular o imposto, essa classe precisasse fazer mais alguma coisa, como por exemplo, alterar o status do Orï¿½amento, ou notificar algum outro objeto desse valor calculado. Nesse caso, precisarï¿½amos de uma classe para conter essa regra de negï¿½cios, e a classe CalculadoraDeImpostos seria uma boa candidata.
 
-Repare que não há resposta correta; tudo sempre depende do contexto, do problema que estamos resolvendo.
+Repare que nï¿½o hï¿½ resposta correta; tudo sempre depende do contexto, do problema que estamos resolvendo.
 
-<h2>Estratégias para Investimentos</h2>
+<h2>Estratï¿½gias para Investimentos</h2>
 
-Muitas pessoas optam por investir o dinheiro das suas contas bancárias. Existem diversos tipos de investimentos, desde investimentos conservadores até mais arrojados.
+Muitas pessoas optam por investir o dinheiro das suas contas bancï¿½rias. Existem diversos tipos de investimentos, desde investimentos conservadores atï¿½ mais arrojados.
 
-Independentemente do investimento escolhido, o titular da conta recebe apenas 75% do lucro do investimento, pois 25% é imposto.
+Independentemente do investimento escolhido, o titular da conta recebe apenas 75% do lucro do investimento, pois 25% ï¿½ imposto.
 
-Implemente um mecanismo que invista o valor do saldo dela em um dos vários tipos de investimento e, dado o retorno desse investimento, 75% do valor é adicionado no saldo da conta.
+Implemente um mecanismo que invista o valor do saldo dela em um dos vï¿½rios tipos de investimento e, dado o retorno desse investimento, 75% do valor ï¿½ adicionado no saldo da conta.
 
-Crie a classe RealizadorDeInvestimentos que recebe uma estratégia de investimento, a executa sobre uma conta bancária, e adiciona o resultado seguindo a regra acima no saldo da conta.
+Crie a classe RealizadorDeInvestimentos que recebe uma estratï¿½gia de investimento, a executa sobre uma conta bancï¿½ria, e adiciona o resultado seguindo a regra acima no saldo da conta.
 
-Os possíveis tipos de investimento são:
+Os possï¿½veis tipos de investimento sï¿½o:
 
 "CONSERVADOR", que sempre retorna 0.8% do valor investido;
 "MODERADO", que tem 50% de chances de retornar 2.5%, e 50% de chances de retornar 0.7%;
 "ARROJADO", que tem 20% de chances de retornar 5%, 30% de chances de retornar 3%, e 50% de chances de retornar 0.6%.
-Para verificar se a chance é maior que 30%, por exemplo, use:
+Para verificar se a chance ï¿½ maior que 30%, por exemplo, use:
 
   boolean escolhido = new java.util.Random().nextDouble() > 0.30;
 
-Vamos começar modelando nossa classe Conta, com um saldo e um método deposita():
+Vamos comeï¿½ar modelando nossa classe Conta, com um saldo e um mï¿½todo deposita():
 
 ```java
       class Conta {
@@ -387,7 +387,7 @@ Vamos começar modelando nossa classe Conta, com um saldo e um método deposita():
       }
 ```
 
-Em seguida vamos criar a interface Investimento, e suas implementações concretas:
+Em seguida vamos criar a interface Investimento, e suas implementaï¿½ï¿½es concretas:
 
 ```java
       interface Investimento {
@@ -429,7 +429,7 @@ Em seguida vamos criar a interface Investimento, e suas implementações concretas
       }
 ```
 
-Agora vamos fazer a classe RealizadorDeInvestimentos, que receberá uma conta e um investimento, e depositará o valor do investimento na conta:
+Agora vamos fazer a classe RealizadorDeInvestimentos, que receberï¿½ uma conta e um investimento, e depositarï¿½ o valor do investimento na conta:
 ```java
       class RealizadorDeInvestimentos {
         public void realiza(Conta conta, Investimento investimento) {
@@ -443,47 +443,47 @@ Agora vamos fazer a classe RealizadorDeInvestimentos, que receberá uma conta e u
 
 <h2>Strategy o tempo todo?</h2>
 
-Se eu tenho apenas uma única estratégia, faz sentido implementar o Strategy?
+Se eu tenho apenas uma ï¿½nica estratï¿½gia, faz sentido implementar o Strategy?
 
-Depende do problema. Lembre-se que códigos simples são mais fáceis de manter sempre. Se você só tem uma estratégia, talvez faça mais sentido você não usar o Strategy, já que você estaria flexibilizando algo sem necessidade.
+Depende do problema. Lembre-se que cï¿½digos simples sï¿½o mais fï¿½ceis de manter sempre. Se vocï¿½ sï¿½ tem uma estratï¿½gia, talvez faï¿½a mais sentido vocï¿½ nï¿½o usar o Strategy, jï¿½ que vocï¿½ estaria flexibilizando algo sem necessidade.
 
-Mas, se é nítido que novas estratégias aparecerão, com certeza um Strategy é mais limpo do que um conjunto de ifs, conforme discutimos nesse capítulo.
+Mas, se ï¿½ nï¿½tido que novas estratï¿½gias aparecerï¿½o, com certeza um Strategy ï¿½ mais limpo do que um conjunto de ifs, conforme discutimos nesse capï¿½tulo.
 
-Novamente, avalie o contexto e veja se o padrão de projeto vai trazer benefícios para aquele cenário.
+Novamente, avalie o contexto e veja se o padrï¿½o de projeto vai trazer benefï¿½cios para aquele cenï¿½rio.
 
 <h2>Quando usar o Strategy?</h2>
-Quando devemos aplicar Strategy? Cite um exemplo que você viveu que poderia ter utilizado esse padrão.
-O padrão Strategy é muito útil quando temos um conjunto de algoritmos similares, e precisamos alternar entre eles em diferentes pedaços da aplicação. No exemplo do vídeo, temos diferentes maneiras de calcular o imposto, e precisamos alternar entre elas.
+Quando devemos aplicar Strategy? Cite um exemplo que vocï¿½ viveu que poderia ter utilizado esse padrï¿½o.
+O padrï¿½o Strategy ï¿½ muito ï¿½til quando temos um conjunto de algoritmos similares, e precisamos alternar entre eles em diferentes pedaï¿½os da aplicaï¿½ï¿½o. No exemplo do vï¿½deo, temos diferentes maneiras de calcular o imposto, e precisamos alternar entre elas.
 
-O Strategy nos oferece uma maneira flexível para escrever diversos algoritmos diferentes, e de passar esses algoritmos para classes clientes que precisam deles. Esses clientes desconhecem qual é o algoritmo "real" que está sendo executado, e apenas mandam o algoritmo rodar. Isso faz com que o código da classe cliente fique bastante desacoplado das implementações concretas de algoritmos, possibilitando assim com que esse cliente consiga trabalhar com N diferentes algoritmos sem precisar alterar o seu código.
+O Strategy nos oferece uma maneira flexï¿½vel para escrever diversos algoritmos diferentes, e de passar esses algoritmos para classes clientes que precisam deles. Esses clientes desconhecem qual ï¿½ o algoritmo "real" que estï¿½ sendo executado, e apenas mandam o algoritmo rodar. Isso faz com que o cï¿½digo da classe cliente fique bastante desacoplado das implementaï¿½ï¿½es concretas de algoritmos, possibilitando assim com que esse cliente consiga trabalhar com N diferentes algoritmos sem precisar alterar o seu cï¿½digo.
 
 ------------------------------------------------------------------------------------
-<h1>Seção 02 - Muitos Descontos e o Chain of Responsibility</h1>
+<h1>Seï¿½ï¿½o 02 - Muitos Descontos e o Chain of Responsibility</h1>
 
-Nosso orçamento pode receber um desconto de acordo com o tipo da venda que será efetuada. Por exemplo, se o cliente comprou mais de 5 ítens, ele recebe 10% de desconto; se ele fez uma compra casada de alguns produtos, recebe 5% de desconto, e assim por diante.
+Nosso orï¿½amento pode receber um desconto de acordo com o tipo da venda que serï¿½ efetuada. Por exemplo, se o cliente comprou mais de 5 ï¿½tens, ele recebe 10% de desconto; se ele fez uma compra casada de alguns produtos, recebe 5% de desconto, e assim por diante.
 
-Em uma implementação tipicamente procedural, teríamos algo do tipo:
+Em uma implementaï¿½ï¿½o tipicamente procedural, terï¿½amos algo do tipo:
 
 ```java
     public class CalculadorDeDescontos {
       public double calcula(Orcamento orcamento) {
-        // verifica primeira regra de possível desconto
+        // verifica primeira regra de possï¿½vel desconto
         if(orcamento.getItens().size() > 5) {
           return orcamento.getValor() * 0.1;
         }
 
-        // verifica segunda regra de possível desconto
+        // verifica segunda regra de possï¿½vel desconto
         else if(orcamento.getValor() > 500.0) {
           return orcamento.getValor() * 0.07;
         }
 
-        // verifica terceira, quarta, quinta regra de possível desconto ...
+        // verifica terceira, quarta, quinta regra de possï¿½vel desconto ...
         // um monte de ifs daqui pra baixo
       }
     }
 ```
 
-Ver esse monte de ifs em sequência nos lembra o capítulo anterior, na qual extraímos cada um deles para uma classe específica. Vamos repetir o feito, já que com classes menores, o código se torna mais simples de entender:
+Ver esse monte de ifs em sequï¿½ncia nos lembra o capï¿½tulo anterior, na qual extraï¿½mos cada um deles para uma classe especï¿½fica. Vamos repetir o feito, jï¿½ que com classes menores, o cï¿½digo se torna mais simples de entender:
 ```java
     public class DescontoPorMaisDeCincoItens {
       public double desconta(Orcamento orcamento) {
@@ -507,11 +507,11 @@ Ver esse monte de ifs em sequência nos lembra o capítulo anterior, na qual extra
     }
 ```
 
-Veja que tivemos que sempre colocar um return 0;, afinal o método precisa sempre retornar um double. Vamos agora substituir o conjunto de ifs na classe CalculadorDeDesconto. Repare que essa classe procura pelo desconto que deve ser aplicado; caso o anterior não seja válido, tenta o próximo.
+Veja que tivemos que sempre colocar um return 0;, afinal o mï¿½todo precisa sempre retornar um double. Vamos agora substituir o conjunto de ifs na classe CalculadorDeDesconto. Repare que essa classe procura pelo desconto que deve ser aplicado; caso o anterior nï¿½o seja vï¿½lido, tenta o prï¿½ximo.
 ```java
     public class CalculadorDeDescontos {
       public double calcula(Orcamento orcamento) {
-        // vai chamando os descontos na ordem até que algum deles dê diferente de zero...
+        // vai chamando os descontos na ordem atï¿½ que algum deles dï¿½ diferente de zero...
         double desconto = new DescontoPorMaisDeCincoItens().desconta(orcamento);
         if(desconto == 0) 
           desconto = new DescontoPorMaisDeQuinhentosReais().desconta(orcamento);
@@ -524,9 +524,9 @@ Veja que tivemos que sempre colocar um return 0;, afinal o método precisa sempre
     }
 ```
 
-O código já está um pouco melhor. Cada regra de negócio está em sua respectiva classe. O problema agora é como fazer essa sequência de descontos ser aplicada na ordem, pois precisamos colocar mais um if sempre que um novo desconto aparecer.
+O cï¿½digo jï¿½ estï¿½ um pouco melhor. Cada regra de negï¿½cio estï¿½ em sua respectiva classe. O problema agora ï¿½ como fazer essa sequï¿½ncia de descontos ser aplicada na ordem, pois precisamos colocar mais um if sempre que um novo desconto aparecer.
 
-Precisávamos fazer com que um desconto qualquer, caso não deva ser executado, automaticamente passe para o próximo, até encontrar um que faça sentido. Algo do tipo:
+Precisï¿½vamos fazer com que um desconto qualquer, caso nï¿½o deva ser executado, automaticamente passe para o prï¿½ximo, atï¿½ encontrar um que faï¿½a sentido. Algo do tipo:
 ```java
       public class DescontoPorMaisDeQuinhentosReais {
         public double desconta(Orcamento orcamento) {
@@ -539,7 +539,7 @@ Precisávamos fazer com que um desconto qualquer, caso não deva ser executado, au
         }
       }
 ```
-Todos os descontos têm algo em comum. Todos eles calculam o desconto dado um orçamento. Podemos criar uma abstração para representar um desconto genérico. Por exemplo:
+Todos os descontos tï¿½m algo em comum. Todos eles calculam o desconto dado um orï¿½amento. Podemos criar uma abstraï¿½ï¿½o para representar um desconto genï¿½rico. Por exemplo:
 
 ```java
       public interface Desconto {
@@ -549,7 +549,7 @@ Todos os descontos têm algo em comum. Todos eles calculam o desconto dado um orç
       public class DescontoPorMaisDeCincoItens implements Desconto { ... }
       public class DescontoPorMaisDeQuinhentosReais implements Desconto { ... }
 ```
-Para fazer aquele código funcionar agora, basta fazer com que todo desconto receba um próximo desconto! Observe o código abaixo:
+Para fazer aquele cï¿½digo funcionar agora, basta fazer com que todo desconto receba um prï¿½ximo desconto! Observe o cï¿½digo abaixo:
 
 ```java
       public interface Desconto {
@@ -591,9 +591,9 @@ Para fazer aquele código funcionar agora, basta fazer com que todo desconto rece
       }
 ```
 
-Ou seja, se o orçamento atende a regra de um desconto, o mesmo já calcula o desconto. Caso contrário, ele passa para o "próximo" desconto, qualquer que seja esse próximo desconto.
+Ou seja, se o orï¿½amento atende a regra de um desconto, o mesmo jï¿½ calcula o desconto. Caso contrï¿½rio, ele passa para o "prï¿½ximo" desconto, qualquer que seja esse prï¿½ximo desconto.
 
-Basta agora plugarmos todas essas classes juntas. Veja que um desconto recebe um "próximo". Para o desconto, pouco importa qual é o próximo desconto. Eles estão totalmente desacoplados um do outro!
+Basta agora plugarmos todas essas classes juntas. Veja que um desconto recebe um "prï¿½ximo". Para o desconto, pouco importa qual ï¿½ o prï¿½ximo desconto. Eles estï¿½o totalmente desacoplados um do outro!
 
 ```java
       public class CalculadorDeDescontos {
@@ -622,9 +622,9 @@ Basta agora plugarmos todas essas classes juntas. Veja que um desconto recebe um
         }
       }
 ```
-Esses descontos formam como se fosse uma "corrente", ou seja, um ligado ao outro. Daí o nome do padrão de projeto: Chain of Responsibility. A ideia do padrão é resolver problemas como esses: de acordo com o cenário, devemos realizar alguma ação. Ao invés de escrevermos código procedural, e deixarmos um único método descobrir o que deve ser feito, quebramos essas responsabilidades em várias diferentes classes, e as unimos como uma corrente.
+Esses descontos formam como se fosse uma "corrente", ou seja, um ligado ao outro. Daï¿½ o nome do padrï¿½o de projeto: Chain of Responsibility. A ideia do padrï¿½o ï¿½ resolver problemas como esses: de acordo com o cenï¿½rio, devemos realizar alguma aï¿½ï¿½o. Ao invï¿½s de escrevermos cï¿½digo procedural, e deixarmos um ï¿½nico mï¿½todo descobrir o que deve ser feito, quebramos essas responsabilidades em vï¿½rias diferentes classes, e as unimos como uma corrente.
 
-Nosso problema é só fazer o algoritmo parar agora. Se ele não encontrar nenhum desconto válido, o valor deve ser 0. Vamos criar a classe SemDesconto, que será o fim da corrente.
+Nosso problema ï¿½ sï¿½ fazer o algoritmo parar agora. Se ele nï¿½o encontrar nenhum desconto vï¿½lido, o valor deve ser 0. Vamos criar a classe SemDesconto, que serï¿½ o fim da corrente.
 
 ```java
       public class SemDesconto implements Desconto {
@@ -652,9 +652,9 @@ Nosso problema é só fazer o algoritmo parar agora. Se ele não encontrar nenhum d
       }
 ```
 
-A classe SemDesconto não atribui o próximo desconto, pois ela não possui um próximo. Na realidade, ela é o ponto final da nossa cadeia de responsabilidades.
+A classe SemDesconto nï¿½o atribui o prï¿½ximo desconto, pois ela nï¿½o possui um prï¿½ximo. Na realidade, ela ï¿½ o ponto final da nossa cadeia de responsabilidades.
 
-Note também que nossa classe Orcamento cresceu, e agora recebe ítens também. A mudança é simples:
+Note tambï¿½m que nossa classe Orcamento cresceu, e agora recebe ï¿½tens tambï¿½m. A mudanï¿½a ï¿½ simples:
 
 ```java
       public class Orcamento {
@@ -703,11 +703,11 @@ Note também que nossa classe Orcamento cresceu, e agora recebe ítens também. A m
 
 <h2>Desconto por Venda Casada</h2>
 
-Implemente mais uma estratégia de desconto: 5% se tivermos LAPIS e CANETA na mesma compra.
+Implemente mais uma estratï¿½gia de desconto: 5% se tivermos LAPIS e CANETA na mesma compra.
 
 Para isso, crie a classe DescontoPorVendaCasada. Adicione essa classe na cadeia, para suceder o DescontoPorMaisDeQuinhentosReais.
 
-Para verificar se um item está no orçamento você pode usar uma função como a seguinte:
+Para verificar se um item estï¿½ no orï¿½amento vocï¿½ pode usar uma funï¿½ï¿½o como a seguinte:
 
 ```java
         private boolean existe(String nomeDoItem, Orcamento orcamento) {
@@ -717,7 +717,7 @@ Para verificar se um item está no orçamento você pode usar uma função como a seg
             return false;
         }
 ```
-Parecido com o exercício anterior, nosso desconto implementa a interface Desconto e passa para o próximo desconto caso o orçamento não deva receber esse desconto.
+Parecido com o exercï¿½cio anterior, nosso desconto implementa a interface Desconto e passa para o prï¿½ximo desconto caso o orï¿½amento nï¿½o deva receber esse desconto.
 
 
 ```java
@@ -775,23 +775,23 @@ Parecido com o exercício anterior, nosso desconto implementa a interface Descont
 
 <h2>Utiidade da classe CalculadorDeDescontos</h2>
 
-Será que a classe CalculadorDeDescontos é realmente necessária? Discuta a utilidade dela.
+Serï¿½ que a classe CalculadorDeDescontos ï¿½ realmente necessï¿½ria? Discuta a utilidade dela.
 
-Agora que implementamos o Chain of Responsibility, temos cada uma das responsabilidades separadas em uma classe, e uma forma de unir essa corrente novamente. Veja a flexibilidade que o padrão nos deu: podemos montar a corrente da forma como quisermos, e sem muitas complicações.
+Agora que implementamos o Chain of Responsibility, temos cada uma das responsabilidades separadas em uma classe, e uma forma de unir essa corrente novamente. Veja a flexibilidade que o padrï¿½o nos deu: podemos montar a corrente da forma como quisermos, e sem muitas complicaï¿½ï¿½es.
 
-Mas precisamos de uma classe que monte essa corrente na ordem certa, com todos os descontos necessários. Por isso que optamos pela classe CalculadorDeDescontos. Ela poderia ter qualquer outro nome como CorrenteDeDescontos, e assim por diante, mas fato é que em algum lugar do seu código você precisará montar essa corrente.
+Mas precisamos de uma classe que monte essa corrente na ordem certa, com todos os descontos necessï¿½rios. Por isso que optamos pela classe CalculadorDeDescontos. Ela poderia ter qualquer outro nome como CorrenteDeDescontos, e assim por diante, mas fato ï¿½ que em algum lugar do seu cï¿½digo vocï¿½ precisarï¿½ montar essa corrente.
 
-<h2>Implementando Chain of Responsability em Requisições Web</h2>
+<h2>Implementando Chain of Responsability em Requisiï¿½ï¿½es Web</h2>
 
-Um servidor de aplicação bancária que se comunica com outras deve responder de várias formas diferentes, de acordo com a solicitação da aplicação cliente.
+Um servidor de aplicaï¿½ï¿½o bancï¿½ria que se comunica com outras deve responder de vï¿½rias formas diferentes, de acordo com a solicitaï¿½ï¿½o da aplicaï¿½ï¿½o cliente.
 
-Se a aplicação solicitar uma Conta, cujos atributos são separados por ponto-e-vírgula, por exemplo, o servidor deverá serializar a conta nesse formato; se a aplicação solicitar XML, o servidor deverá serializar em XML; se ela pedir separado por % (por cento), a aplicação deverá devolver dessa forma.
+Se a aplicaï¿½ï¿½o solicitar uma Conta, cujos atributos sï¿½o separados por ponto-e-vï¿½rgula, por exemplo, o servidor deverï¿½ serializar a conta nesse formato; se a aplicaï¿½ï¿½o solicitar XML, o servidor deverï¿½ serializar em XML; se ela pedir separado por % (por cento), a aplicaï¿½ï¿½o deverï¿½ devolver dessa forma.
 
-Por exemplo: a versão em XML deve imprimir na tela: <conta><titular>João da Silva</titular><saldo>1500.0</saldo></conta>.
+Por exemplo: a versï¿½o em XML deve imprimir na tela: <conta><titular>Joï¿½o da Silva</titular><saldo>1500.0</saldo></conta>.
 
-Implemente um Chain of Responsibility onde, dada uma requisição e uma conta bancária, ela passeia por toda a corrente até encontrar a classe que deve processar a requisição de acordo com o formato solicitado, e imprime na tela a conta bancária no formato correto.
+Implemente um Chain of Responsibility onde, dada uma requisiï¿½ï¿½o e uma conta bancï¿½ria, ela passeia por toda a corrente atï¿½ encontrar a classe que deve processar a requisiï¿½ï¿½o de acordo com o formato solicitado, e imprime na tela a conta bancï¿½ria no formato correto.
 
-Imagine que a classe Requisição possui um getter getFormato(), que responde "XML", "CSV", ou "PORCENTO", indicando qual tratamento adequado. Uma Conta possui apenas saldo e nome do titular:
+Imagine que a classe Requisiï¿½ï¿½o possui um getter getFormato(), que responde "XML", "CSV", ou "PORCENTO", indicando qual tratamento adequado. Uma Conta possui apenas saldo e nome do titular:
 
 ```java
     enum Formato {
@@ -820,7 +820,7 @@ A sua interface do Chain of Responsibility deve ser algo como:
     }
 ```
 
-Vamos começar implementando a Conta Bancária e a Requisição:
+Vamos comeï¿½ar implementando a Conta Bancï¿½ria e a Requisiï¿½ï¿½o:
 
 ```java
     class Conta {
@@ -855,7 +855,7 @@ Vamos começar implementando a Conta Bancária e a Requisição:
     }
 ```
 
-Agora vamos implementar a cadeia, onde cada parte da cadeia verifica se ela deve atender aquela requisição ou passar para o próximo:
+Agora vamos implementar a cadeia, onde cada parte da cadeia verifica se ela deve atender aquela requisiï¿½ï¿½o ou passar para o prï¿½ximo:
 
 ```java
     interface Resposta {
@@ -922,15 +922,15 @@ Agora vamos implementar a cadeia, onde cada parte da cadeia verifica se ela deve
 
 ```
 
-<h2>Recebendo o próximo item da corrente pelo construtor</h2>
+<h2>Recebendo o prï¿½ximo item da corrente pelo construtor</h2>
 
-O que você achou de receber o próximo item da corrente através de um setter? O que acha de recebê-lo através do construtor?
+O que vocï¿½ achou de receber o prï¿½ximo item da corrente atravï¿½s de um setter? O que acha de recebï¿½-lo atravï¿½s do construtor?
 
-Implemente essa alteração no exercício anterior e discuta as vantagens e desvantagens dessa solução. Cole sua implementação aqui.
+Implemente essa alteraï¿½ï¿½o no exercï¿½cio anterior e discuta as vantagens e desvantagens dessa soluï¿½ï¿½o. Cole sua implementaï¿½ï¿½o aqui.
 
-Ao receber a dependência pelo construtor, garantimos que o cliente dessas classes nunca esquecerá de passar o próximo item da sequência, o que pode facilmente acontecer se esquecermos de invocar o método setProxima().
+Ao receber a dependï¿½ncia pelo construtor, garantimos que o cliente dessas classes nunca esquecerï¿½ de passar o prï¿½ximo item da sequï¿½ncia, o que pode facilmente acontecer se esquecermos de invocar o mï¿½todo setProxima().
 
-O possível problema com isso é que receber o próximo item da corrente fica implícito na implementação. Sempre que você criar uma nova Resposta, você precisará lembrar de receber o próximo pelo construtor. Com o setProxima() na interface, garantimos que toda implementação saberá lidar com uma próxima resposta.
+O possï¿½vel problema com isso ï¿½ que receber o prï¿½ximo item da corrente fica implï¿½cito na implementaï¿½ï¿½o. Sempre que vocï¿½ criar uma nova Resposta, vocï¿½ precisarï¿½ lembrar de receber o prï¿½ximo pelo construtor. Com o setProxima() na interface, garantimos que toda implementaï¿½ï¿½o saberï¿½ lidar com uma prï¿½xima resposta.
 
 
 ```java
@@ -996,9 +996,9 @@ O possível problema com isso é que receber o próximo item da corrente fica implí
 
 <h2>Fim da correnta no Chain of Responsibility</h2>
 
-Como você faria para lidar com o fim da corrente, sem precisar criar uma classe que não faça nada igual fizemos no vídeo e no primeiro exercício?
+Como vocï¿½ faria para lidar com o fim da corrente, sem precisar criar uma classe que nï¿½o faï¿½a nada igual fizemos no vï¿½deo e no primeiro exercï¿½cio?
 
-Você pode fazer com que o próximo item da corrente seja opcional (ou seja, o atributo outraResposta fica com null caso não haja um próximo item). E, no momento de invocar o próximo, você deve verificar se esse atributo é nulo ou não. Por exemplo, no exercício sobre respostas, poderíamos ter implementado da seguinte maneira:
+Vocï¿½ pode fazer com que o prï¿½ximo item da corrente seja opcional (ou seja, o atributo outraResposta fica com null caso nï¿½o haja um prï¿½ximo item). E, no momento de invocar o prï¿½ximo, vocï¿½ deve verificar se esse atributo ï¿½ nulo ou nï¿½o. Por exemplo, no exercï¿½cio sobre respostas, poderï¿½amos ter implementado da seguinte maneira:
 
 ```java
  class RespostaEmPorcento implements Resposta {
@@ -1018,9 +1018,9 @@ Você pode fazer com que o próximo item da corrente seja opcional (ou seja, o atr
         } else if(outraResposta != null){
             outraResposta.responde(req, conta);
         } else {
-            // não existe próxima na corrente, e ninguém atendeu a requisição!
-            // poderíamos não ter feito nada aqui, caso não fosse necessário!
-            throw new RuntimeException("Formato de resposta não encontrado");
+            // nï¿½o existe prï¿½xima na corrente, e ninguï¿½m atendeu a requisiï¿½ï¿½o!
+            // poderï¿½amos nï¿½o ter feito nada aqui, caso nï¿½o fosse necessï¿½rio!
+            throw new RuntimeException("Formato de resposta nï¿½o encontrado");
         }
     }
 }
@@ -1028,19 +1028,19 @@ Você pode fazer com que o próximo item da corrente seja opcional (ou seja, o atr
 
 <h2>Quando usar o Chain of Responsibility?</h2>
 
-Em quais situações se torna ideal o uso do padrão Chain of Responsibility? Cite algum momento que poderia ter aplicado ele na sua experiência até hoje.
+Em quais situaï¿½ï¿½es se torna ideal o uso do padrï¿½o Chain of Responsibility? Cite algum momento que poderia ter aplicado ele na sua experiï¿½ncia atï¿½ hoje.
 
-O padrão Chain of Responsibility cai como uma luva quando temos uma lista de comandos a serem executados de acordo com algum cenário em específico, e sabemos também qual o próximo cenário que deve ser validado, caso o anterior não satisfaça a condição.
+O padrï¿½o Chain of Responsibility cai como uma luva quando temos uma lista de comandos a serem executados de acordo com algum cenï¿½rio em especï¿½fico, e sabemos tambï¿½m qual o prï¿½ximo cenï¿½rio que deve ser validado, caso o anterior nï¿½o satisfaï¿½a a condiï¿½ï¿½o.
 
-Nesses casos, o Chain of Responsibility nos possibilita a separação de responsabilidades em classes pequenas e enxutas, e ainda provê uma maneira flexível e desacoplada de juntar esses comportamentos novamente.
+Nesses casos, o Chain of Responsibility nos possibilita a separaï¿½ï¿½o de responsabilidades em classes pequenas e enxutas, e ainda provï¿½ uma maneira flexï¿½vel e desacoplada de juntar esses comportamentos novamente.
 
 
 ----------------------------------------------------------------------
-<h1>Seção 03 - Códigos parecidos e o Template Method</h1>
+<h1>Seï¿½ï¿½o 03 - Cï¿½digos parecidos e o Template Method</h1>
 
-Em nossa aplicação de orçamentos, diversos impostos possuem cálculos parecidos. Por exemplo, imagine dois impostos ICPP e IKCV. O imposto ICPP é calculado da seguinte forma: caso o valor do orçamento seja menor que 500,00, deve-se cobrar 5%; caso contrário, 7%.
+Em nossa aplicaï¿½ï¿½o de orï¿½amentos, diversos impostos possuem cï¿½lculos parecidos. Por exemplo, imagine dois impostos ICPP e IKCV. O imposto ICPP ï¿½ calculado da seguinte forma: caso o valor do orï¿½amento seja menor que 500,00, deve-se cobrar 5%; caso contrï¿½rio, 7%.
 
-Seguindo já a nossa abstração Imposto, criado no capítulo referente ao padrão Strategy, teríamos a seguinte implementação:
+Seguindo jï¿½ a nossa abstraï¿½ï¿½o Imposto, criado no capï¿½tulo referente ao padrï¿½o Strategy, terï¿½amos a seguinte implementaï¿½ï¿½o:
 ```java
     class ICPP implements Imposto {
         public double calcula(Orcamento orcamento) {
@@ -1052,9 +1052,9 @@ Seguindo já a nossa abstração Imposto, criado no capítulo referente ao padrão St
         }
     }
 ```
-Já o imposto IKCV, caso o valor do orçamento seja maior que 500,00 e algum item tiver valor superior a 100,00, o imposto a ser cobrado é de 10%; caso contrário 6%.
+Jï¿½ o imposto IKCV, caso o valor do orï¿½amento seja maior que 500,00 e algum item tiver valor superior a 100,00, o imposto a ser cobrado ï¿½ de 10%; caso contrï¿½rio 6%.
 
-A implementação seria algo como:
+A implementaï¿½ï¿½o seria algo como:
 
 ```java
     class IKCV implements Imposto {
@@ -1075,9 +1075,9 @@ A implementação seria algo como:
         }
     }
 ```
-Veja que os dois impostos, apesar de diferentes, possuem uma estrutura em comum. Ambos checam o orçamento para ver se devem cobrar a taxação máxima e, a partir daí, cobram a máxima ou a mínima.
+Veja que os dois impostos, apesar de diferentes, possuem uma estrutura em comum. Ambos checam o orï¿½amento para ver se devem cobrar a taxaï¿½ï¿½o mï¿½xima e, a partir daï¿½, cobram a mï¿½xima ou a mï¿½nima.
 
-Poderíamos escrever um algoritmo que generaliza os outros dois, algo como um "molde":
+Poderï¿½amos escrever um algoritmo que generaliza os outros dois, algo como um "molde":
 ```java
     class TemplateDeImpostoCondicional implements Imposto {
         public double calcula(Orcamento orcamento) {
@@ -1090,13 +1090,13 @@ Poderíamos escrever um algoritmo que generaliza os outros dois, algo como um "mo
 
         } 
 
-        // e os três métodos necessários       
+        // e os trï¿½s mï¿½todos necessï¿½rios       
     }
 ```
 
-Bastaria agora fazer com que os impostos X e Y possuam suas próprias implementações de deveUsarMaximaTaxacao(), maximaTaxacao() e minimaTaxacao().
+Bastaria agora fazer com que os impostos X e Y possuam suas prï¿½prias implementaï¿½ï¿½es de deveUsarMaximaTaxacao(), maximaTaxacao() e minimaTaxacao().
 
-Podemos deixar explícito nesse código que cada um desses métodos são "buracos" e devem ser implementados por classes-filhas. Logo, podemos tornar esses métodos abstratos!
+Podemos deixar explï¿½cito nesse cï¿½digo que cada um desses mï¿½todos sï¿½o "buracos" e devem ser implementados por classes-filhas. Logo, podemos tornar esses mï¿½todos abstratos!
 ```java
     public abstract class TemplateDeImpostoCondicional implements Imposto {
 
@@ -1114,7 +1114,7 @@ Podemos deixar explícito nesse código que cada um desses métodos são "buracos" e
         public abstract double minimaTaxacao(Orcamento orcamento);
     }
 ```
-Vamos fazer a implementação de Y, por exemplo. A classe ImpostoY vai herdar de TemplateDeImpostoCondicional, e escrever apenas os métodos abstratos; afinal, o método público que contém o algoritmo já está escrito na classe pai!
+Vamos fazer a implementaï¿½ï¿½o de Y, por exemplo. A classe ImpostoY vai herdar de TemplateDeImpostoCondicional, e escrever apenas os mï¿½todos abstratos; afinal, o mï¿½todo pï¿½blico que contï¿½m o algoritmo jï¿½ estï¿½ escrito na classe pai!
 ```java
     class ImpostoY extends TemplateDeImpostoCondicional {
 
@@ -1148,21 +1148,21 @@ A mesma coisa para X:
       }
     }
 ```
-Veja que ambas as classes de impostos só implementam as partes "que faltam" do algoritmo! A classe TemplateDeImpostoCondicional possui um método que funciona como um template, ou seja, um molde, para as classes filhas. Daí o nome do padrão de projeto: Template Method.
+Veja que ambas as classes de impostos sï¿½ implementam as partes "que faltam" do algoritmo! A classe TemplateDeImpostoCondicional possui um mï¿½todo que funciona como um template, ou seja, um molde, para as classes filhas. Daï¿½ o nome do padrï¿½o de projeto: Template Method.
 
-Veja que o uso do padrão evitou a repetição de código, e ainda facilitou a implementação das diferentes variações do algoritmo.
+Veja que o uso do padrï¿½o evitou a repetiï¿½ï¿½o de cï¿½digo, e ainda facilitou a implementaï¿½ï¿½o das diferentes variaï¿½ï¿½es do algoritmo.
 
-<h2>Padrão Template Method</h2>
+<h2>Padrï¿½o Template Method</h2>
 
 Implemente o Template Method para resolver o problema dos impostos.
 
 Implemente os Impostos ICPP e IKCV.
 
-O imposto ICPP é calculado da seguinte forma: caso o valor do orçamento seja menor que 500,00, deve-se cobrar 5%; caso contrário, 7%.
+O imposto ICPP ï¿½ calculado da seguinte forma: caso o valor do orï¿½amento seja menor que 500,00, deve-se cobrar 5%; caso contrï¿½rio, 7%.
 
-Já o imposto IKCV, caso o valor do orçamento seja maior que 500,00 e algum item tiver valor superior a 100,00, o imposto a ser cobrado é de 10%; caso contrário 6%.
+Jï¿½ o imposto IKCV, caso o valor do orï¿½amento seja maior que 500,00 e algum item tiver valor superior a 100,00, o imposto a ser cobrado ï¿½ de 10%; caso contrï¿½rio 6%.
 
-Escreva um método main que testa sua implementação.
+Escreva um mï¿½todo main que testa sua implementaï¿½ï¿½o.
 
 ```java
 
@@ -1185,22 +1185,22 @@ public class Main {
 <h2>Modificador de acesso em Template Method</h2>
 
 
-* Na explicação e no vídeo, definimos todos os métodos como public. Mas será que todos eles realmente devem ser public?
+* Na explicaï¿½ï¿½o e no vï¿½deo, definimos todos os mï¿½todos como public. Mas serï¿½ que todos eles realmente devem ser public?
 
-* As classes clientes precisam conhecer a existência do método maximaTaxacao(), por exemplo?
+* As classes clientes precisam conhecer a existï¿½ncia do mï¿½todo maximaTaxacao(), por exemplo?
 
-* Qual seria o melhor modificador de acesso para esses métodos do "template" ?
+* Qual seria o melhor modificador de acesso para esses mï¿½todos do "template" ?
 
 * R: protected
 
-* O protected seria o modificador de acesso ideal. As classes cliente não os enxergariam, e as classes filhas do Template conseguiriam sobreescrever esse método sem problemas.
+* O protected seria o modificador de acesso ideal. As classes cliente nï¿½o os enxergariam, e as classes filhas do Template conseguiriam sobreescrever esse mï¿½todo sem problemas.
 
 <h2>Imposto Z</h2>
 
 
 * Crie o imposto IHIT, que tem a seguinte regra: caso existam 2 itens com o mesmo nome, o imposto deve ser de 13% mais R$100,00.
 
-* Caso contrário, o valor do imposto deverá ser (1% * o número de ítens no orçamento).
+* Caso contrï¿½rio, o valor do imposto deverï¿½ ser (1% * o nï¿½mero de ï¿½tens no orï¿½amento).
 
 ```java
 
@@ -1225,18 +1225,18 @@ public class Main {
     }
 ```
 
-<h2>Relatórios e Template Method</h2>
+<h2>Relatï¿½rios e Template Method</h2>
 
-* Relatórios são muito parecidos: todos eles contêm cabeçalho, corpo, e rodapé. Existem dois tipos de relatórios: simples e complexos.
+* Relatï¿½rios sï¿½o muito parecidos: todos eles contï¿½m cabeï¿½alho, corpo, e rodapï¿½. Existem dois tipos de relatï¿½rios: simples e complexos.
 
-* As diferenças são sutis: relatórios simples possuem cabeçalhos e rodapés de uma linha, apenas com o nome do banco e telefone, respectivamente; relatórios complexos possuem cabeçalhos que informam o nome do banco, endereço, telefone, e rodapés que informam e-mail, e a data atual.
+* As diferenï¿½as sï¿½o sutis: relatï¿½rios simples possuem cabeï¿½alhos e rodapï¿½s de uma linha, apenas com o nome do banco e telefone, respectivamente; relatï¿½rios complexos possuem cabeï¿½alhos que informam o nome do banco, endereï¿½o, telefone, e rodapï¿½s que informam e-mail, e a data atual.
 
-* Além disso, dada uma lista de contas, um relatório simples apenas imprime titular e saldo da conta. O relatório complexo exibe titular, agência, número da conta e saldo.
+* Alï¿½m disso, dada uma lista de contas, um relatï¿½rio simples apenas imprime titular e saldo da conta. O relatï¿½rio complexo exibe titular, agï¿½ncia, nï¿½mero da conta e saldo.
 
-* Use Template Method, e implemente o mecanismo de relatórios. Use dados falsos para os dados do banco.
+* Use Template Method, e implemente o mecanismo de relatï¿½rios. Use dados falsos para os dados do banco.
 
 ```java
-Vamos criar o template do relatório:
+Vamos criar o template do relatï¿½rio:
 
 
     abstract class Relatorio {
@@ -1252,7 +1252,7 @@ Vamos criar o template do relatório:
     }
 ```
 
-* Agora vamos implementar os diferentes relatórios, preenchendo somente os "buracos" do template:
+* Agora vamos implementar os diferentes relatï¿½rios, preenchendo somente os "buracos" do template:
 
 
 ```java
@@ -1296,39 +1296,39 @@ Vamos criar o template do relatório:
 
 <h2>Chain of Responsibility e Template Method</h2>
 
-* Será que podemos misturar os padrões de projeto? No capítulo anterior, será que o Template Method poderia ser usado em conjunto com o Chain of Responsibility? Como?
+* Serï¿½ que podemos misturar os padrï¿½es de projeto? No capï¿½tulo anterior, serï¿½ que o Template Method poderia ser usado em conjunto com o Chain of Responsibility? Como?
 
-* Claro que podemos! Você deve se lembrar que no capítulo anterior implementamos uma verificação em todos os nós da corrente: caso tenha um próximo item na corrente, ele repassa; caso contrário, para a corrente.
+* Claro que podemos! Vocï¿½ deve se lembrar que no capï¿½tulo anterior implementamos uma verificaï¿½ï¿½o em todos os nï¿½s da corrente: caso tenha um prï¿½ximo item na corrente, ele repassa; caso contrï¿½rio, para a corrente.
 
-* Perceba que todas as correntes seguem um mesmo padrão: todas elas verificam se devem trabalhar, verificando uma condição qualquer; em caso positivo, fazem o seu trabalho. Em caso negativo, a corrente verifica se existe um próximo nó a ser invocado. Se existe, passa para ele. Se não existe, lança uma exceção.
+* Perceba que todas as correntes seguem um mesmo padrï¿½o: todas elas verificam se devem trabalhar, verificando uma condiï¿½ï¿½o qualquer; em caso positivo, fazem o seu trabalho. Em caso negativo, a corrente verifica se existe um prï¿½ximo nï¿½ a ser invocado. Se existe, passa para ele. Se nï¿½o existe, lanï¿½a uma exceï¿½ï¿½o.
 
-* Implementar um Template Method ali poderia fazer com que o programador escrevesse menos código em todos os nós da corrente, facilitando as novas implementações.
+* Implementar um Template Method ali poderia fazer com que o programador escrevesse menos cï¿½digo em todos os nï¿½s da corrente, facilitando as novas implementaï¿½ï¿½es.
 
 <h2>Quando usar o Template Method?</h2>
 
-* Quando devemos aplicar o padrão Template Method? No código que você já escreveu na tua vida profissional, onde poderia ter aplicado ele?
+* Quando devemos aplicar o padrï¿½o Template Method? No cï¿½digo que vocï¿½ jï¿½ escreveu na tua vida profissional, onde poderia ter aplicado ele?
 
-* Quando temos diferentes algoritmos que possuem estruturas parecidas, o Template Method é uma boa solução. Com ele, conseguimos definir, em um nível mais macro, a estrutura do algoritmo e deixar "buracos", que serão implementados de maneira diferente por cada uma das implementações específicas.
+* Quando temos diferentes algoritmos que possuem estruturas parecidas, o Template Method ï¿½ uma boa soluï¿½ï¿½o. Com ele, conseguimos definir, em um nï¿½vel mais macro, a estrutura do algoritmo e deixar "buracos", que serï¿½o implementados de maneira diferente por cada uma das implementaï¿½ï¿½es especï¿½ficas.
 
-* Dessa forma, reutilizamos ao invés de repetirmos código, e facilitamos possíveis evoluções, tanto do algoritmo em sua estrutura macro, quanto dos detalhes do algoritmo, já que cada classe tem sua responsabilidade bem separada.
+* Dessa forma, reutilizamos ao invï¿½s de repetirmos cï¿½digo, e facilitamos possï¿½veis evoluï¿½ï¿½es, tanto do algoritmo em sua estrutura macro, quanto dos detalhes do algoritmo, jï¿½ que cada classe tem sua responsabilidade bem separada.
 
-<h2>O uso dos padrões. Adaptar ou usar conforme descrito?</h2>
+<h2>O uso dos padrï¿½es. Adaptar ou usar conforme descrito?</h2>
 
-* Perceba que nosso TemplateDeImpostoCondicional possui o método calcula(), que é o molde do nosso algoritmo, e todas as classes filhas herdam esse método.
+* Perceba que nosso TemplateDeImpostoCondicional possui o mï¿½todo calcula(), que ï¿½ o molde do nosso algoritmo, e todas as classes filhas herdam esse mï¿½todo.
 
-* O que acontece se a classe filha alterar o código do método com template? Isso é possível, afinal a classe filha pode sobreescrever o método da classe pai:
+* O que acontece se a classe filha alterar o cï¿½digo do mï¿½todo com template? Isso ï¿½ possï¿½vel, afinal a classe filha pode sobreescrever o mï¿½todo da classe pai:
 
 ```java
 class ImpostoMaluco extends TemplateDeImpostoCondicional {
   public void calcula() { 
-    // mudei a implementação do template aqui
+    // mudei a implementaï¿½ï¿½o do template aqui
   }
 }
 ```
 
-* Isso faz sentido? Como poderíamos evitar que as filhas "alterem" o template definido pelo pai?
+* Isso faz sentido? Como poderï¿½amos evitar que as filhas "alterem" o template definido pelo pai?
 
-* Podemos evitar que aquele método template, definido na classe pai, seja sobrescrito! Para isso, basta adicionarmos o modificador "final" na assinatura do método calcula():
+* Podemos evitar que aquele mï¿½todo template, definido na classe pai, seja sobrescrito! Para isso, basta adicionarmos o modificador "final" na assinatura do mï¿½todo calcula():
 
 ```java
     class TemplateDeImpostoCondicional implements Imposto {
@@ -1343,12 +1343,12 @@ class ImpostoMaluco extends TemplateDeImpostoCondicional {
         } 
     }
 ```
-* Dessa forma, os filhos não conseguirão sobrescrever o método template da classe pai. Esse tipo de alteração é muito comum em implementações de Template Method.
+* Dessa forma, os filhos nï¿½o conseguirï¿½o sobrescrever o mï¿½todo template da classe pai. Esse tipo de alteraï¿½ï¿½o ï¿½ muito comum em implementaï¿½ï¿½es de Template Method.
 
 ------------------------------------------------------------
-<h1>Seção 04 - Comportamentos compostos por outros comportamentos e o Decorator</h1>
+<h1>Seï¿½ï¿½o 04 - Comportamentos compostos por outros comportamentos e o Decorator</h1>
 
-* Nos capítulos anteriores criamos nossa abstração para os impostos através da hierarquia que começa pela interface Imposto e por meio dela podemos calcular os impostos dos orçamentos. Um exemplo desses cálculos, é dado pelo código abaixo:
+* Nos capï¿½tulos anteriores criamos nossa abstraï¿½ï¿½o para os impostos atravï¿½s da hierarquia que comeï¿½a pela interface Imposto e por meio dela podemos calcular os impostos dos orï¿½amentos. Um exemplo desses cï¿½lculos, ï¿½ dado pelo cï¿½digo abaixo:
 
 ```java
       public class TesteDeImpostos {
@@ -1364,7 +1364,7 @@ class ImpostoMaluco extends TemplateDeImpostoCondicional {
           }
       }
 ```
-* No entanto, o exemplo demonstra um simples cálculo. Em muitos projetos, pode ser necessário criar comportamentos que sejam compostos por outros comportamentos. Um exemplo seria calcularmos o ICMS em cima do ISS, como no código abaixo:
+* No entanto, o exemplo demonstra um simples cï¿½lculo. Em muitos projetos, pode ser necessï¿½rio criar comportamentos que sejam compostos por outros comportamentos. Um exemplo seria calcularmos o ICMS em cima do ISS, como no cï¿½digo abaixo:
 
 ```java
       public class TesteDeImpostos {
@@ -1380,9 +1380,9 @@ class ImpostoMaluco extends TemplateDeImpostoCondicional {
           }
       }
 ```
-* Repare que para isso, tivemos que criar uma nova classe, chamada ISSComICMS. A codificação dessa classe seria uma simples sequência de cálculos envolvendo os dois impostos. No entanto, o mais importante a se notar nesse ponto, é o fato de que sempre que quisermos cálculos compostos de impostos, temos que criar uma nova classe. Ou seja, se quisermos calcular ISS com o fictício ICCP, criaríamos uma classe ISSComICCP. Imagine se tivermos 3 impostos: serão 8 combinações; 4 impostos já seriam 16! Trabalhoso demais de implementar! Com isso, percebemos que nosso código é pouco flexível, pois teríamos que saber de antemão as várias combinações possíveis de impostos e criarmos uma classe para cada.
+* Repare que para isso, tivemos que criar uma nova classe, chamada ISSComICMS. A codificaï¿½ï¿½o dessa classe seria uma simples sequï¿½ncia de cï¿½lculos envolvendo os dois impostos. No entanto, o mais importante a se notar nesse ponto, ï¿½ o fato de que sempre que quisermos cï¿½lculos compostos de impostos, temos que criar uma nova classe. Ou seja, se quisermos calcular ISS com o fictï¿½cio ICCP, criarï¿½amos uma classe ISSComICCP. Imagine se tivermos 3 impostos: serï¿½o 8 combinaï¿½ï¿½es; 4 impostos jï¿½ seriam 16! Trabalhoso demais de implementar! Com isso, percebemos que nosso cï¿½digo ï¿½ pouco flexï¿½vel, pois terï¿½amos que saber de antemï¿½o as vï¿½rias combinaï¿½ï¿½es possï¿½veis de impostos e criarmos uma classe para cada.
 
-* Pensando no momento do uso das classes de impostos e tendo em vista que queremos ter diferentes combinações de impostos sem precisarmos criar classes novas, poderíamos fazer os impostos, opcionalmente, depender de outro imposto. Assim, teríamos algo como:
+* Pensando no momento do uso das classes de impostos e tendo em vista que queremos ter diferentes combinaï¿½ï¿½es de impostos sem precisarmos criar classes novas, poderï¿½amos fazer os impostos, opcionalmente, depender de outro imposto. Assim, terï¿½amos algo como:
 ```java
       public class TesteDeImpostos {
 
@@ -1397,9 +1397,9 @@ class ImpostoMaluco extends TemplateDeImpostoCondicional {
           }
       }
 ```
-* No código acima, note que não precisamos criar mais nenhuma classe e apenas compomos os comportamentos com as que já possuíamos. Mas o código acima ainda não compila! A classe ISS precisa receber outros impostos. E se quiséssemos fazer o processo inverso, ou seja, calcular o ISS, em cima do ICMS, precisaríamos que a classe ICMS recebesse também outros impostos. E pela flexibilidade, deveria poder ser recebido qualquer imposto.
+* No cï¿½digo acima, note que nï¿½o precisamos criar mais nenhuma classe e apenas compomos os comportamentos com as que jï¿½ possuï¿½amos. Mas o cï¿½digo acima ainda nï¿½o compila! A classe ISS precisa receber outros impostos. E se quisï¿½ssemos fazer o processo inverso, ou seja, calcular o ISS, em cima do ICMS, precisarï¿½amos que a classe ICMS recebesse tambï¿½m outros impostos. E pela flexibilidade, deveria poder ser recebido qualquer imposto.
 
-* Com isso, percebemos que em nosso caso, todos os impostos, podem receber outros impostos. Podemos explicitar isso através de construtores na classe Imposto. Caso você possua uma interface chamada Imposto, nesse momento, pode-se transformá-la em uma classe abstrata, para podermos adicionar os construtores:
+* Com isso, percebemos que em nosso caso, todos os impostos, podem receber outros impostos. Podemos explicitar isso atravï¿½s de construtores na classe Imposto. Caso vocï¿½ possua uma interface chamada Imposto, nesse momento, pode-se transformï¿½-la em uma classe abstrata, para podermos adicionar os construtores:
 
 ```java
     public abstract class Imposto {
@@ -1413,7 +1413,7 @@ class ImpostoMaluco extends TemplateDeImpostoCondicional {
     }
 ```
 
-* O próximo passo é fazermos as classes filhas de Imposto também terem os construtores, delegando para o construtor de Imposto. Para isso, um exemplo é a classe ISS:
+* O prï¿½ximo passo ï¿½ fazermos as classes filhas de Imposto tambï¿½m terem os construtores, delegando para o construtor de Imposto. Para isso, um exemplo ï¿½ a classe ISS:
 
 ```java
     public class ISS extends Imposto {
@@ -1429,7 +1429,7 @@ class ImpostoMaluco extends TemplateDeImpostoCondicional {
     }
 ```
 
-* Nesse momento, já conseguimos fazer com que os impostos recebam outros impostos, mas ainda não estamos compondo os cálculos. Nesse caso do ISS, queremos que o calcula, devolva os 6% do orçamento mais o resultado do cálculo do outro imposto. Com isso, nosso método calcula precisa também do outro imposto, então, vamos utilizá-lo:
+* Nesse momento, jï¿½ conseguimos fazer com que os impostos recebam outros impostos, mas ainda nï¿½o estamos compondo os cï¿½lculos. Nesse caso do ISS, queremos que o calcula, devolva os 6% do orï¿½amento mais o resultado do cï¿½lculo do outro imposto. Com isso, nosso mï¿½todo calcula precisa tambï¿½m do outro imposto, entï¿½o, vamos utilizï¿½-lo:
 
 ```java
     public class ISS extends Imposto {
@@ -1449,7 +1449,7 @@ class ImpostoMaluco extends TemplateDeImpostoCondicional {
     }
 ```
 
-* Esse método calculoDoOutroImposto será o mesmo em todos os impostos. Para evitar repetição de código, ele pode estar na classe Imposto, garantindo que todos que herdam de Imposto possam chamá-lo para delegar para o outro imposto, caso ele tenha sido definido. Nesse caso, a implementação na classe Imposto seria:
+* Esse mï¿½todo calculoDoOutroImposto serï¿½ o mesmo em todos os impostos. Para evitar repetiï¿½ï¿½o de cï¿½digo, ele pode estar na classe Imposto, garantindo que todos que herdam de Imposto possam chamï¿½-lo para delegar para o outro imposto, caso ele tenha sido definido. Nesse caso, a implementaï¿½ï¿½o na classe Imposto seria:
 
 ```java
       public abstract class Imposto {
@@ -1464,7 +1464,7 @@ class ImpostoMaluco extends TemplateDeImpostoCondicional {
       }
 ```
 
-* Mas e no final, quando não existirem mais impostos a serem calculados? O outroImposto será nulo? Devemos permitir que um imposto não tenha mais um próximo imposto a ser calculado. Para isso, vamos adicionar um construtor default na classe Imposto, e fazer com que o método calculoDoOutroImposto() agora trate o caso de não haver um próximo:
+* Mas e no final, quando nï¿½o existirem mais impostos a serem calculados? O outroImposto serï¿½ nulo? Devemos permitir que um imposto nï¿½o tenha mais um prï¿½ximo imposto a ser calculado. Para isso, vamos adicionar um construtor default na classe Imposto, e fazer com que o mï¿½todo calculoDoOutroImposto() agora trate o caso de nï¿½o haver um prï¿½ximo:
 
 ```java
       public abstract class Imposto {
@@ -1489,11 +1489,12 @@ class ImpostoMaluco extends TemplateDeImpostoCondicional {
           public abstract double calcula(Orcamento orcamento);
       }
 ```
-* Repare que o método calculoDoOutroImposto invoca o método calcula caso outro imposto tenha sido definido. Caso contrário, apenas retorna 0, não influenciando na composiçao do cálculo.
+* Repare que o mï¿½todo calculoDoOutroImposto invoca o mï¿½todo calcula caso outro imposto tenha sido definido. Caso contrï¿½rio, apenas retorna 0, nï¿½o influenciando na composiï¿½ao do cï¿½lculo.
 
-* Por questões de implementação, precisaremos escrever construtores default em todos os nossos impostos agora para que todos eles funcionem de maneira adequada.
+* Por questï¿½es de implementaï¿½ï¿½o, precisaremos escrever construtores default em todos os nossos impostos agora para que todos eles funcionem de maneira adequada.
 
-* Pronto, agora conseguimos inclusive compor o comportamento. Ao executarmos o código new ISS(new ICMS()) o ICMS será guardado como o outro imposto e quando o cálculo for realizado, o método calculoDoOutroImposto que está sendo chamado no calcula se encarregará de invocar o cálculo do outro imposto.
+* Pronto, agora conseguimos inclusive compor o comportamento. Ao executarmos o cï¿½digo new ISS(new ICMS()) o ICMS serï¿½ guardado como o outro imposto e quando o cï¿½lculo for realizado, o mï¿½todo calculoDoOutroImposto que estï¿½ sendo chamado no calcula se encarregarï¿½ de invocar o cï¿½lculo do outro imposto.
 
-* Quando compomos comportamento, através de classes que recebem objetos do mesmo tipo que elas mesmas (nesse caso, ISS que é um Imposto, recebe em seu construtor outro Imposto) para fazerem parte de seu comportamento, de uma maneira que seu uso é definido a partir do que se passou para a instanciação dos objetos, é o que caracteriza o Design Pattern chamado Decorator.
+* Quando compomos comportamento, atravï¿½s de classes que recebem objetos do mesmo tipo que elas mesmas (nesse caso, ISS que ï¿½ um Imposto, recebe em seu construtor outro Imposto) para fazerem parte de seu comportamento, de uma maneira que seu uso ï¿½ definido a partir do que se passou para a instanciaï¿½ï¿½o dos objetos, ï¿½ o que caracteriza o Design Pattern chamado Decorator.
+
 
